@@ -1,5 +1,5 @@
 class CreateProfiles < ActiveRecord::Migration[5.2]
-  def change
+  def up
     create_table :profiles do |t|
       t.string :username
       t.string :password
@@ -7,5 +7,9 @@ class CreateProfiles < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
+  end
+
+  def down
+    drop_table :profiles
   end
 end

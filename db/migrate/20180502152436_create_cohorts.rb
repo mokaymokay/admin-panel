@@ -1,18 +1,17 @@
 class CreateCohorts < ActiveRecord::Migration[5.2]
-  def change
+  def up
     create_table :cohorts do |t|
       t.string :name
       t.date :start_date
       t.date :end_date
-      t.integer :course_id
-      t.integer :instructor_id
+      t.references :course, index: true
+      t.references :instructor, index: true
 
       t.timestamps
     end
+  end
 
-    # index the foreign keys
-    add_index :cohorts, :course_id
-    add_index :cohorts, :instructor_id
-
+  def down
+    drop_table :cohorts
   end
 end

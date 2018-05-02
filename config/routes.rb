@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  # define root view
+  root 'cohorts#index'
+
   get 'users/index'
   get 'users/create'
   get 'users/show'
