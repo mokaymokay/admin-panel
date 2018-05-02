@@ -12,7 +12,7 @@ class CreateCohorts < ActiveRecord::Migration[5.2]
 
     # index the foreign keys
     add_index :cohorts, :course_id
-    add_index :cohorts, :instructor_id]
+    add_index :cohorts, :instructor_id
 
   end
 end
