@@ -2,18 +2,21 @@ class InstructorsController < ApplicationController
   def index
   end
 
-  def create
+  def show
   end
 
-  def show
+  def new
+  end
+
+  def create
   end
 
   def edit
   end
 
-  def destroy
+  def update
   end
 
-  def update
+  def destroy
   end
 end

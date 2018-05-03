@@ -4,19 +4,22 @@ class CohortsController < ApplicationController
     @kay = Admin.first
   end
 
-  def create
-  end
-
   # links to /cohorts/:id route
   def show
+  end
+
+  def new
+  end
+
+  def create
   end
 
   def edit
   end
 
-  def destroy
+  def update
   end
 
-  def update
+  def destroy
   end
 end
