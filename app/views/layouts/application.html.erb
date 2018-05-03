@@ -8,16 +8,15 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => "reload" %>
+  <%= stylesheet_link_tag "bootstrap.min", media: "all", "data-turbolinks-track" => "reload" %>
+  <%= stylesheet_link_tag "font-awesome.min", media: "all", "data-turbolinks-track" => "reload" %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => "reload" %>
+  <%= javascript_include_tag "jquery.min", "data-turbolinks-track" => "reload" %>
+  <%= javascript_include_tag "bootstrap.bundle.min", "data-turbolinks-track" => "reload" %>
+  <%= javascript_include_tag "jquery.easing.min", "data-turbolinks-track" => "reload" %>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
   <title>Admin Panel</title>
-  <!-- Bootstrap core CSS-->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Custom fonts for this template-->
-  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  <!-- Custom styles for this template-->
-  <link href="sb-admin.css" rel="stylesheet">
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
@@ -234,8 +233,6 @@
       </ol>
       <div class="row">
         <div class="col-12">
-          <h1>Blank</h1>
-          <p>This is an example of a blank page that you can use as a starting point for creating new ones.</p>
           <%= yield %>
         </div>
       </div>
@@ -245,7 +242,7 @@
     <footer class="sticky-footer">
       <div class="container">
         <div class="text-center">
-          <small>Copyright © Your Website 2018</small>
+          <small>Copyright © Admin Panel 2018</small>
         </div>
       </div>
     </footer>
@@ -271,13 +268,6 @@
         </div>
       </div>
     </div>
-    <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-    <!-- Custom scripts for all pages-->
-    <script src="sb-admin.min.js"></script>
   </div>
 </body>
 

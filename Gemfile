@@ -39,7 +39,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # CSS
 gem 'bootstrap-sass'
 gem 'font-awesome-rails'
-
+# JS
+gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'faker'
 
 group :development, :test do
