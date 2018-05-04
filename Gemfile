@@ -41,7 +41,11 @@ gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 # JS
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
+# App
 gem 'faker'
+gem "bootstrap_form",
+    git: "https://github.com/bootstrap-ruby/bootstrap_form.git",
+    branch: "master"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
