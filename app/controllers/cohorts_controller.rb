@@ -1,22 +1,23 @@
 class CohortsController < ApplicationController
-  # links to /cohorts route
+  # links to /courses/:course_id/cohorts route
   def index
-    @cohorts = Cohort.all
+    @cohorts = Cohort.where(course_id: params[:course_id])
   end
 
-  # links to /cohorts/:id route
+  # links to courses/:course_id/cohorts/:id route
   def show
     @cohort = Cohort.find(params[:id])
   end
 
   def new
     @cohort = Cohort.new
+    @course = Course.find(params[:course_id])
   end
 
   def create
     Cohort.create(cohort_params)
     # change link to nested
-    redirect_to '/cohorts'
+    redirect_to '/courses/1/cohorts/'
   end
 
   def edit
@@ -39,6 +40,6 @@ class CohortsController < ApplicationController
   private
 
   def cohort_params
-    params.require(:owner).permit(:name, :start_date, :end_date, :course_id, :instructor_id)
+    params.require(:cohort).permit(:name, :start_date, :end_date, :instructor_id, :course_id)
   end
 end

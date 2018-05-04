@@ -1,6 +1,6 @@
 <% @page_title = "Courses" %>
 
-<h4>Courses</h4>
+<h4><%= @page_title %></h4>
 
 <button class="btn btn-outline-primary btn-sm"><%= link_to("Add New Course", new_course_path, :class => 'action new') %></button>
 
@@ -21,9 +21,9 @@
       <td><%= course.id %></td>
       <td><%= course.name %></td>
       <td><%= course.hours %></td>
-      <td><button class="btn btn-outline-primary btn-sm"><%= link_to("Show", course_path(course), :class => 'action show') %></button></td>
       <td><button class="btn btn-outline-primary btn-sm"><%= link_to("Edit", edit_course_path(course), :class => 'action edit') %></button></td>
-      <td><button class="btn btn-outline-primary btn-sm"><%= link_to 'Delete', course_path(course),  :method => :delete, data: { confirm: 'Are you sure?' } %></button></td>
+      <td><button class="btn btn-outline-primary btn-sm"><%= link_to "Delete", course_path(course),  :method => :delete, data: { confirm: 'Are you sure?' } %></button></td>
+      <td><button class="btn btn-outline-primary btn-sm"><%= link_to("Show Cohorts", course_cohorts_path(course), :class => 'action index') %></button></td>
       </form>
     </tr>
     <% end %>

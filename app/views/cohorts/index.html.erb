@@ -1,3 +1,36 @@
-<h1>Cohorts#index</h1>
-<p>Find me in app/views/cohorts/index.html.erb</p>
-<p><%= @kay.profile.username %></p>
+<% @page_title = "Cohorts" %>
+
+<h4><%= @page_title %></h4>
+
+<button class="btn btn-outline-primary btn-sm"><%= link_to("Add New Cohort", new_course_cohort_path, :class => 'action new') %></button>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Name</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @cohorts.each do |cohort| %>
+    <tr>
+      <td><%= cohort.id %></td>
+      <td><%= cohort.name %></td>
+      <td><%= cohort.start_date %></td>
+      <td><%= cohort.end_date %></td>
+      <% if false %>
+      <td><button class="btn btn-outline-primary btn-sm"><%= link_to("Cohort Details", [@course, @cohort]) %></button></td>
+      <td><button class="btn btn-outline-primary btn-sm"><%= link_to("Edit", edit_course_cohort_path(course_id, cohort), :class => 'action edit') %></button></td>
+      <td><button class="btn btn-outline-primary btn-sm"><%= link_to "Delete", cohort_path(cohort),  :method => :delete, data: { confirm: 'Are you sure?' } %></button></td>
+      <% end %>
+      </form>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
