@@ -23,7 +23,7 @@
       <td><%= course.hours %></td>
       <td><button class="btn btn-outline-primary btn-sm"><%= link_to("Show", course_path(course), :class => 'action show') %></button></td>
       <td><button class="btn btn-outline-primary btn-sm"><%= link_to("Edit", edit_course_path(course), :class => 'action edit') %></button></td>
-      <td><button class="btn btn-outline-primary btn-sm"><%= link_to("Delete", course_path(course), :class => 'action delete') %></button></td>
+      <td><button class="btn btn-outline-primary btn-sm"><%= link_to 'Delete', course_path(course),  :method => :delete, data: { confirm: 'Are you sure?' } %></button></td>
       </form>
     </tr>
     <% end %>

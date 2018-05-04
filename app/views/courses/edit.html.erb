@@ -1,2 +1,9 @@
-<h1>Courses#edit</h1>
-<p>Find me in app/views/courses/edit.html.erb</p>
+<% @page_title = "Edit Course" %>
+
+<%= bootstrap_form_for @course do |f| %>
+    <%= f.text_field :name, value: @course.name %>
+    <%= f.number_field :hours, value: @course.hours %>
+    <%= f.submit %>
+<% end %>
+
+<%= link_to 'Delete', course_path(@course),  :method => :delete, data: { confirm: 'Are you sure?' } %>
