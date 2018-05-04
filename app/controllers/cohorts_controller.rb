@@ -16,25 +16,23 @@ class CohortsController < ApplicationController
 
   def create
     Cohort.create(cohort_params)
-    # change link to nested
-    redirect_to '/courses/1/cohorts/'
+    redirect_to course_cohorts_path(params[:course_id])
   end
 
   def edit
     @cohort = Cohort.find(params[:id])
+    @course = Course.find(params[:course_id])
   end
 
   def update
     @cohort = Cohort.find(params[:id])
     @cohort.update(cohort_params)
-    # change link to nested
-    redirect_to '/cohorts'
+    redirect_to course_cohorts_path(params[:course_id])
   end
 
   def destroy
     @cohort = Cohort.find(params[:id]).destroy
-    # change link to nested
-    redirect_to '/cohorts'
+    redirect_to course_cohorts_path(params[:course_id])
   end
 
   private
