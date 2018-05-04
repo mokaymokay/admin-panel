@@ -37,7 +37,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 # CSS
-gem 'bootstrap-sass'
+gem 'sprockets-rails', :require => 'sprockets/railtie'
+gem 'bootstrap', '~> 4.1.1'
 gem 'font-awesome-rails'
 # JS
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
