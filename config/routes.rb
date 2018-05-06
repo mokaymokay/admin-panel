@@ -4,8 +4,15 @@ Rails.application.routes.draw do
   resources :courses do
     resources :cohorts
   end
-  resources :instructors
+
+  resources :instructors do
+    resources :profiles
+  end
+
+  resources :admins do
+    resources :profiles
+  end
+
   resources :students
-  resources :profiles
-  resources :users
+
 end

@@ -1,2 +1,17 @@
-<h1>Instructors#edit</h1>
-<p>Find me in app/views/instructors/edit.html.erb</p>
+<% @page_title = "Edit Instructor" %>
+
+<%= bootstrap_form_for @instructor do |f| %>
+    <%= f.text_field :first_name %>
+    <%= f.text_field :last_name %>
+    <%= f.number_field :age, max: 149 %>
+    <%= f.number_field :salary, min: 1 %>
+    <%= f.select :degree, [['HS', 'HS'], ['College', 'College'], ['Masters', 'Masters'], ['PhD', 'PhD']] %>
+    <!-- TODO: currently unable to edit password since Rails filters out password -->
+    <!-- <%= f.fields_for :profile do |p| %>
+      <%= p.text_field :username %>
+      <%= p.password_field :password %>
+    <% end %> -->
+    <%= f.submit %>
+<% end %>
+
+<%= link_to 'Delete', instructor_path, :method => :delete, data: { confirm: 'Are you sure?' } %>
