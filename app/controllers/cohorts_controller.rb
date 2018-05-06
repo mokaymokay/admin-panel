@@ -6,7 +6,8 @@ class CohortsController < ApplicationController
 
   # links to courses/:course_id/cohorts/:id route
   def show
-    @cohort = Cohort.find(params[:id])
+    cohort = Cohort.find(params[:id])
+    @students = cohort.students
   end
 
   def new

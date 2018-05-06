@@ -1,2 +1,9 @@
-<h1>Students#new</h1>
-<p>Find me in app/views/students/new.html.erb</p>
+<% @page_title = "Add Student" %>
+
+<%= bootstrap_form_for @student do |f| %>
+    <%= f.text_field :first_name %>
+    <%= f.text_field :last_name %>
+    <%= f.number_field :age, max: 149 %>
+    <%= f.select :degree, ['HS', 'College', 'Masters', 'PhD'] %>
+    <%= f.submit %>
+<% end %>

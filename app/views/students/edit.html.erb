@@ -1,2 +1,11 @@
-<h1>Students#edit</h1>
-<p>Find me in app/views/students/edit.html.erb</p>
+<% @page_title = "Edit Student" %>
+
+<%= bootstrap_form_for @student do |f| %>
+    <%= f.text_field :first_name %>
+    <%= f.text_field :last_name %>
+    <%= f.number_field :age, max: 149 %>
+    <%= f.select :degree, ['HS', 'College', 'Masters', 'PhD'] %>
+    <%= f.submit %>
+<% end %>
+
+<%= link_to 'Delete', student_path, :method => :delete, data: { confirm: 'Are you sure?' } %>
