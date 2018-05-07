@@ -1,11 +1,13 @@
 class CoursesController < ApplicationController
 
+  before_action :set_course, only: [:show, :edit, :update, :destroy]
+
   def index
     @courses = Course.all
   end
 
   def show
-    @course = Course.find(params[:id])
+    @course
   end
 
   def new
@@ -23,12 +25,11 @@ class CoursesController < ApplicationController
   end
 
   def edit
-    @course = Course.find(params[:id])
+    @course
   end
 
   def update
-    @course = Course.find(params[:id])
-    if @course.update_attributes(course_params)
+    if @course.update(course_params)
       flash[:notice] = "Course #{@course.name} updated successfully."
       redirect_to courses_path
     else
@@ -37,12 +38,16 @@ class CoursesController < ApplicationController
   end
 
   def destroy
-    @course = Course.find(params[:id]).destroy
+    @course.destroy
     flash[:error] = "Course #{@course.name} destroyed successfully."
     redirect_to courses_path
   end
 
   private
+
+  def set_course
+    @course = Course.find(params[:id])
+  end
 
   def course_params
     params.require(:course).permit(:name, :hours)
