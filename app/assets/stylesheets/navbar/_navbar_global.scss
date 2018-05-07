@@ -102,7 +102,7 @@
           width: $sidenav-base-width;
           padding: 0;
           > .nav-link {
-            padding: 1em;
+            padding: 0.5em;
           }
           .sidenav-second-level,
           .sidenav-third-level {
@@ -113,7 +113,7 @@
             > li {
               width: $sidenav-base-width;
               > a {
-                padding: 1em;
+                padding: 0.5em;
               }
             }
           }
