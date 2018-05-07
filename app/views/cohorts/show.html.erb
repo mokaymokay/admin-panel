@@ -13,6 +13,7 @@
       <th>Last Name</th>
       <th>Age</th>
       <th>Degree</th>
+      <th>Grade</th>
       <th></th>
       <th></th>
       <th></th>
@@ -26,10 +27,13 @@
       <td><%= student.last_name %></td>
       <td><%= student.age %></td>
       <td><%= student.degree %></td>
-      <!-- TODO: view and edit grades, and remove from course -->
+      <% grade = student.grades.find_by(cohort_id: params[:id]).pass %>
+      <td><%= grade == true ? "Passed" : "Failed" %></td>
+      <!-- TODO: edit grades, and remove from course -->
       </form>
     </tr>
     <% end %>
   </tbody>
 </table>
 <br>
+<h4>Instructor: <%= @instructor.first_name %> <%= @instructor.last_name %></h4>
