@@ -16,7 +16,7 @@ class InstructorsController < ApplicationController
   end
 
   def create
-    @instructor = Instructor.create(instructor_params)
+    @instructor = Instructor.new(instructor_params)
     if @instructor.save
       flash[:success] = "Instructor '#{@instructor.full_name}' created successfully."
       redirect_to instructors_path

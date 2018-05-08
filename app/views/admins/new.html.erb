@@ -1,0 +1,11 @@
+<% @page_title = "Add Admin" %>
+
+<%= bootstrap_form_for @admin do |f| %>
+    <%= f.text_field :first_name %>
+    <%= f.text_field :last_name %>
+    <%= f.fields_for :profile do |p| %>
+      <%= p.text_field :username %>
+      <%= p.password_field :password %>
+    <% end %>
+    <%= f.submit %>
+<% end %>

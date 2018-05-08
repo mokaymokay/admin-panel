@@ -1,46 +1,59 @@
 class AdminsController < ApplicationController
+
+  before_action :set_admin, only: [:show, :edit, :update, :destroy]
+
   def index
-    @admins = admin.all
+    @admins = Admin.all
   end
 
   def show
-    @admin = admin.find(params[:id])
+    @admin
   end
 
   def new
-    @admin = admin.new
+    @admin = Admin.new
     @admin.build_profile
   end
 
   def create
-    admin.create(admin_params)
-    redirect_to admins_path
+    @admin = Admin.new(admin_params)
+    if @admin.save
+      flash[:success] = "Admin '#{@admin.full_name}' created successfully."
+      redirect_to admins_path
+    else
+      render('new')
+    end
   end
 
   def edit
-    @admin = admin.find(params[:id])
+    @admin
   end
 
   def update
-    @admin = admin.find(params[:id])
-    @admin.update(admin_params)
-    redirect_to admins_path
+    if @admin.update(admin_params)
+      flash[:alert] = "Admin '#{@admin.full_name}' updated successfully."
+      redirect_to admins_path
+    else
+      render 'edit'
+    end
   end
 
   def destroy
-    admin.find(params[:id]).destroy
+    @admin.destroy
+    flash[:error] = "Admin '#{@admin.full_name}' destroyed successfully."
     redirect_to admins_path
   end
 
   private
 
+  def set_admin
+    @admin = Admin.find(params[:id])
+  end
+
   def admin_params
     params.require(:admin).permit(
       :first_name, :last_name, :age, :degree,
-      profile_attributes: [
-        :username,
-        :password
-      ]
+      profile_attributes: [:username, :password]
     )
   end
 end
