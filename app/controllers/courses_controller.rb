@@ -17,7 +17,7 @@ class CoursesController < ApplicationController
   def create
     @course = Course.new(course_params)
     if @course.save
-      flash[:success] = "Course #{@course.name} created successfully."
+      flash[:success] = "Course '#{@course.name}' created successfully."
       redirect_to courses_path
     else
       render('new')
@@ -30,7 +30,7 @@ class CoursesController < ApplicationController
 
   def update
     if @course.update(course_params)
-      flash[:notice] = "Course #{@course.name} updated successfully."
+      flash[:alert] = "Course '#{@course.name}' updated successfully."
       redirect_to courses_path
     else
       render 'edit'
@@ -39,7 +39,7 @@ class CoursesController < ApplicationController
 
   def destroy
     @course.destroy
-    flash[:error] = "Course #{@course.name} destroyed successfully."
+    flash[:error] = "Course '#{@course.name}' destroyed successfully."
     redirect_to courses_path
   end
 

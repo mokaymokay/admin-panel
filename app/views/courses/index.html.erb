@@ -1,16 +1,8 @@
-<% if !flash.blank? %>
-  <% flash.each do |key, value| %>
-    <div class="<%= flash_class(key) %>">
-      <%= value %>
-    </div>
-  <% end %>
-<% end %>
-
 <% @page_title = "Courses" %>
 
-<h4><%= @page_title %></h4>
+<%= render "shared/flash" %>
 
-<%= link_to("Add New Course", new_course_path, :class => "btn btn-outline-success btn-sm") %>
+<%= render partial: "shared/table_heading", :locals => { :body => 'Add New Course', :url => new_course_path } %>
 
 <table class="table table-hover">
   <thead>
@@ -30,7 +22,7 @@
       <td><%= course.name %></td>
       <td><%= course.hours %></td>
       <td><%= link_to("Show Cohorts", course_cohorts_path(course), :class => 'btn btn-outline-primary btn-sm') %></td>
-      <td><%= link_to("Edit", edit_course_path(course), :class => 'btn btn-outline-info btn-sm') %></td>
+      <td><%= link_to("Edit", edit_course_path(course), :class => 'btn btn-outline-warning btn-sm') %></td>
       <td><%= link_to "Delete", course_path(course), :method => :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-outline-danger btn-sm' %></td>
       </form>
     </tr>

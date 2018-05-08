@@ -6,6 +6,6 @@
     <%= f.date_field :end_date, value: @cohort.end_date %>
     <%= f.collection_select(:instructor_id, @instructors, :id, :full_name, prompt: true) %>
     <%= f.hidden_field :course_id, value: params[:course_id] %>
-    <%= f.submit "Update", class: "btn btn-outline-info" %>
+    <%= f.submit "Update", class: "btn btn-outline-warning" %>
     <%= link_to "Delete", course_cohort_path(@cohort.course, @cohort), :method => :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-outline-danger float-right' %>
 <% end %>
