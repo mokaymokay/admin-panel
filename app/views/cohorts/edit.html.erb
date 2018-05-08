@@ -1,11 +1,24 @@
-<% @page_title = "Edit Cohort" %>
+<% @page_title = "Edit #{ @cohort.name } Cohort" %>
 
-<%= bootstrap_form_for @cohort, :url => course_cohort_path do |f| %>
-    <%= f.text_field :name, value: @cohort.name %>
-    <%= f.date_field :start_date, value: @cohort.start_date %>
-    <%= f.date_field :end_date, value: @cohort.end_date %>
-    <%= f.collection_select(:instructor_id, @instructors, :id, :full_name, prompt: true) %>
-    <%= f.hidden_field :course_id, value: params[:course_id] %>
-    <%= f.submit "Update", class: "btn btn-outline-warning" %>
-    <%= link_to "Delete", course_cohort_path(@cohort.course, @cohort), :method => :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-outline-danger float-right' %>
-<% end %>
+<div class="container-fluid">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+    <li class="breadcrumb-item"><a href="<%= course_cohorts_path(@course) %>"><%= @course.name %> Cohorts</a></li>
+    <li class="breadcrumb-item active"><%= @page_title %></li>
+  </ol>
+  <div class="row">
+    <div class="col-12">
+
+      <%= bootstrap_form_for @cohort, :url => course_cohort_path do |f| %>
+          <%= f.text_field :name, value: @cohort.name %>
+          <%= f.date_field :start_date, value: @cohort.start_date %>
+          <%= f.date_field :end_date, value: @cohort.end_date %>
+          <%= f.collection_select(:instructor_id, @instructors, :id, :full_name, prompt: true) %>
+          <%= f.hidden_field :course_id, value: params[:course_id] %>
+          <%= f.submit "Update", class: "btn btn-outline-warning" %>
+          <%= link_to "Delete", course_cohort_path(@course, @cohort), :method => :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-outline-danger float-right' %>
+      <% end %>
+
+    </div>
+  </div>
+</div>

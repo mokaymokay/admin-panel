@@ -1,16 +1,29 @@
 <% @page_title = "Edit Instructor" %>
 
-<%= bootstrap_form_for @instructor do |f| %>
-    <%= f.text_field :first_name %>
-    <%= f.text_field :last_name %>
-    <%= f.number_field :age, max: 149 %>
-    <%= f.number_field :salary, min: 1 %>
-    <%= f.select :degree, ['HS', 'College', 'Masters', 'PhD'] %>
-    <!-- TODO: currently unable to edit password since Rails filters out password -->
-    <!-- <%= f.fields_for :profile do |p| %>
-      <%= p.text_field :username %>
-      <%= p.password_field :password %>
-    <% end %> -->
-    <%= f.submit "Update", class: "btn btn-outline-warning" %>
-    <%= link_to 'Delete', instructor_path, :method => :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-outline-danger float-right' %>
-<% end %>
+<div class="container-fluid">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+    <li class="breadcrumb-item"><a href="<%= instructors_path %>">Instructors</a></li>
+    <li class="breadcrumb-item active"><%= @page_title %></li>
+  </ol>
+  <div class="row">
+    <div class="col-12">
+
+      <%= bootstrap_form_for @instructor do |f| %>
+          <%= f.text_field :first_name %>
+          <%= f.text_field :last_name %>
+          <%= f.number_field :age, max: 149 %>
+          <%= f.number_field :salary, min: 1 %>
+          <%= f.select :degree, ['HS', 'College', 'Masters', 'PhD'] %>
+          <!-- TODO: currently unable to edit password since Rails filters out password -->
+          <!-- <%= f.fields_for :profile do |p| %>
+            <%= p.text_field :username %>
+            <%= p.password_field :password %>
+          <% end %> -->
+          <%= f.submit "Update", class: "btn btn-outline-warning" %>
+          <%= link_to 'Delete', instructor_path, :method => :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-outline-danger float-right' %>
+      <% end %>
+
+    </div>
+  </div>
+</div>

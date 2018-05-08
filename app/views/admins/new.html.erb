@@ -1,11 +1,25 @@
 <% @page_title = "Add Admin" %>
 
-<%= bootstrap_form_for @admin do |f| %>
-    <%= f.text_field :first_name %>
-    <%= f.text_field :last_name %>
-    <%= f.fields_for :profile do |p| %>
-      <%= p.text_field :username %>
-      <%= p.password_field :password %>
-    <% end %>
-    <%= f.submit %>
-<% end %>
+<div class="container-fluid">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+    <li class="breadcrumb-item"><a href="<%= admins_path %>">Admins</a></li>
+    <li class="breadcrumb-item active"><%= @page_title %></li>
+  </ol>
+  <div class="row">
+    <div class="col-12">
+
+      <%= bootstrap_form_for @admin do |f| %>
+          <%= f.text_field :first_name %>
+          <%= f.text_field :last_name %>
+          <%= f.fields_for :profile do |p| %>
+            <%= p.text_field :username %>
+            <%= p.password_field :password %>
+          <% end %>
+          <%= f.submit "Add Admin", class: "btn btn-outline-success" %>
+      <% end %>
+      <br>
+
+    </div>
+  </div>
+</div>

@@ -35,21 +35,20 @@
             <span class="nav-link-text">Courses</span>
           </a>
           <ul class="sidenav-second-level collapse" id="collapseExamplePages">
-            <li>
-              <a href="/courses">All Courses</a>
-            </li>
-            <% @courses = Course.all %>
             <% @courses.each do |course| %>
             <li>
-            <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti<%= course.id %>"><%= course.name %></a>
-            <ul class="sidenav-third-level collapse" id="collapseMulti<%= course.id %>">
-              <li>
-                <a href="<%= course_cohorts_path(course) %>">All Cohorts</a>
-              </li>
-              <% course.cohorts.each do |cohort| %>
-              <li>
-                <a href="<%= course_cohort_path(cohort.course, cohort) %>"><%= cohort.name %></a>
-              </li>
+            <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#course<%= course.id %>"><%= course.name %></a>
+            <ul class="sidenav-third-level collapse" id="course<%= course.id %>">
+              <% if !course.cohorts.empty? %>
+                <% course.cohorts.each do |cohort| %>
+                <li>
+                  <a href="<%= course_cohort_path(cohort.course, cohort) %>"><%= cohort.name %></a>
+                </li>
+                <% end %>
+              <% else %>
+                <li>
+                  <a href="<%= new_course_cohort_path(course) %>">Add Cohort</a>
+                </li>
               <% end %>
             </ul>
           </li>
@@ -57,15 +56,21 @@
           </ul>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Instructors">
-          <a class="nav-link" href="/instructors">
-            <i class="fa fa-fw fa-user"></i>
+          <a class="nav-link" href="<%= instructors_path %>">
+            <i class="fa fa-fw fa-user-circle"></i>
             <span class="nav-link-text">Instructors</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Students">
-          <a class="nav-link" href="/students">
+          <a class="nav-link" href="<%= students_path %>">
             <i class="fa fa-fw fa-users"></i>
             <span class="nav-link-text">Students</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Admins">
+          <a class="nav-link" href="<%= admins_path %>">
+            <i class="fa fa-fw fa-github-alt"></i>
+            <span class="nav-link-text">Admins</span>
           </a>
         </li>
       </ul>
@@ -174,22 +179,7 @@
     </div>
   </nav>
   <div class="content-wrapper">
-    <div class="container-fluid">
-      <!-- Breadcrumbs-->
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-          <a href="/">Dashboard</a>
-        </li>
-        <% if @page_title != nil %>
-        <li class="breadcrumb-item active"><%= @page_title %></li>
-        <% end %>
-      </ol>
-      <div class="row">
-        <div class="col-12">
-          <%= yield %>
-        </div>
-      </div>
-    </div>
+    <%= yield %>
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
     <footer class="sticky-footer">

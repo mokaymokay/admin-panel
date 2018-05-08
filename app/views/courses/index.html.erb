@@ -1,32 +1,43 @@
 <% @page_title = "Courses" %>
 
-<%= render "shared/flash" %>
+<div class="container-fluid">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+    <li class="breadcrumb-item active"><%= @page_title %></li>
+  </ol>
+  <div class="row">
+    <div class="col-12">
 
-<%= render partial: "shared/table_heading", :locals => { :body => 'Add New Course', :url => new_course_path } %>
+      <%= render "shared/flash" %>
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Name</th>
-      <th>Hours</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @courses.each do |course| %>
-    <tr>
-      <td><%= course.id %></td>
-      <td><%= course.name %></td>
-      <td><%= course.hours %></td>
-      <td><%= link_to("Show Cohorts", course_cohorts_path(course), :class => 'btn btn-outline-primary btn-sm') %></td>
-      <td><%= link_to("Edit", edit_course_path(course), :class => 'btn btn-outline-warning btn-sm') %></td>
-      <td><%= link_to "Delete", course_path(course), :method => :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-outline-danger btn-sm' %></td>
-      </form>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-<br>
+      <%= render partial: "shared/table_heading", :locals => { :body => 'Add New Course', :url => new_course_path } %>
+
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Hours</th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @courses.each do |course| %>
+          <tr>
+            <td><%= course.id %></td>
+            <td><%= course.name %></td>
+            <td><%= course.hours %></td>
+            <td><%= link_to("Show Cohorts", course_cohorts_path(course), :class => 'btn btn-outline-primary btn-sm') %></td>
+            <td><%= link_to("Edit", edit_course_path(course), :class => 'btn btn-outline-warning btn-sm') %></td>
+            <td><%= link_to "Delete", course_path(course), :method => :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-outline-danger btn-sm' %></td>
+            </form>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>

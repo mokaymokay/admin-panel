@@ -1,7 +1,20 @@
 <% @page_title = "Add Course" %>
 
-<%= bootstrap_form_for @course do |f| %>
-    <%= f.text_field :name %>
-    <%= f.number_field :hours %>
-    <%= f.submit %>
-<% end %>
+<div class="container-fluid">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+    <li class="breadcrumb-item"><a href="<%= courses_path %>">Courses</a></li>
+    <li class="breadcrumb-item active"><%= @page_title %></li>
+  </ol>
+  <div class="row">
+    <div class="col-12">
+
+      <%= bootstrap_form_for @course do |f| %>
+          <%= f.text_field :name %>
+          <%= f.number_field :hours %>
+          <%= f.submit "Add Course", class: "btn btn-outline-success" %>
+      <% end %>
+
+    </div>
+  </div>
+</div>

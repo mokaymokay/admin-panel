@@ -13,8 +13,8 @@
 
 //= require jquery3
 //= require popper
-//= require sb-admin
 //= require bootstrap-sprockets
+//= require sb-admin
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks

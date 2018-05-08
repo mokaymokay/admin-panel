@@ -1,16 +1,18 @@
 class CohortsController < ApplicationController
 
-  before_action :set_course, only: [:new, :edit]
+  before_action :set_course, only: [:index, :show, :new, :edit]
   before_action :set_cohort, only: [:show, :edit, :update, :destroy]
 
   # links to /courses/:course_id/cohorts route
   def index
+    @course
     @cohorts = Cohort.where(course_id: params[:course_id])
   end
 
   # links to courses/:course_id/cohorts/:id route
   def show
     @cohort
+    @course
     @students = @cohort.students
     @instructor = @cohort.instructor
   end

@@ -1,39 +1,51 @@
-<% @page_title = "Cohort Roster" %>
+<% @page_title = "#{@cohort.name}" %>
 
-<h4><%= @page_title %></h4>
+<div class="container-fluid">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+    <li class="breadcrumb-item"><a href="<%= course_cohorts_path %>"><%= @course.name %> Cohorts</a></li>
+    <li class="breadcrumb-item active"><%= @page_title %></li>
+  </ol>
+  <div class="row">
+    <div class="col-12">
+      <h4>Cohort Roster</h4>
 
-<%# TODO: assign student to cohort %>
-<%# link_to("Add to Cohort", new_grade_path, :class => "btn btn-outline-primary btn-sm") %>
+      <%# TODO: assign student to cohort %>
+      <%# link_to("Add to Cohort", new_grade_path, :class => "btn btn-outline-primary btn-sm") %>
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th></th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Age</th>
-      <th>Degree</th>
-      <th>Grade</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @students.each do |student| %>
-    <tr>
-      <td><%= student.id %></td>
-      <td><%= student.first_name %></td>
-      <td><%= student.last_name %></td>
-      <td><%= student.age %></td>
-      <td><%= student.degree %></td>
-      <% grade = student.grades.find_by(cohort_id: params[:id]).pass %>
-      <td><%= grade == true ? "Passed" : "Failed" %></td>
-      <!-- TODO: edit grades, and remove from course -->
-      </form>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-<br>
-<h4>Instructor: <%= @instructor.first_name %> <%= @instructor.last_name %></h4>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th></th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Age</th>
+            <th>Degree</th>
+            <th>Grade</th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @students.each do |student| %>
+          <tr>
+            <td><%= student.id %></td>
+            <td><%= student.first_name %></td>
+            <td><%= student.last_name %></td>
+            <td><%= student.age %></td>
+            <td><%= student.degree %></td>
+            <% grade = student.grades.find_by(cohort_id: params[:id]).pass %>
+            <td><%= grade == true ? "Passed" : "Failed" %></td>
+            <!-- TODO: edit grades, and remove from course -->
+            </form>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <br>
+      <h4>Instructor: <%= @instructor.first_name %> <%= @instructor.last_name %></h4>
+
+    </div>
+  </div>
+</div>
