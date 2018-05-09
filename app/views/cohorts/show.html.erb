@@ -10,8 +10,11 @@
     <div class="col-12">
       <h4>Cohort Roster</h4>
 
-      <%# TODO: assign student to cohort %>
-      <%# link_to("Add to Cohort", new_grade_path, :class => "btn btn-outline-primary btn-sm") %>
+      <%= bootstrap_form_for @grade, :url => grades_path do |f| %>
+          <%= f.collection_select(:student_id, @students_not_in_cohort, :id, :full_name, prompt: true) %>
+          <%= f.hidden_field :cohort_id, value: params[:id] %>
+          <%= f.submit "Add to Cohort", class: "btn btn-outline-success" %>
+      <% end %>
 
       <table class="table table-hover">
         <thead>
@@ -25,6 +28,7 @@
             <th></th>
             <th></th>
             <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -35,8 +39,18 @@
             <td><%= student.last_name %></td>
             <td><%= student.age %></td>
             <td><%= student.degree %></td>
-            <% grade = student.grades.find_by(cohort_id: params[:id]).pass %>
-            <td><%= grade == true ? "Passed" : "Failed" %></td>
+            <% grade = student.grades.find_by(cohort_id: params[:id]) %>
+            <td>
+              <% if grade.pass == true %>
+                <%= "Pass" %>
+              <% elsif grade.pass == false %>
+                <%= "Fail" %>
+              <% else %>
+                <%= "N/A" %>
+              <% end %>
+            </td>
+            <td><%= link_to 'Update Grade', edit_grade_path(grade), :class => 'btn btn-outline-warning btn-sm' %></td>
+
             <!-- TODO: edit grades, and remove from course -->
             </form>
           </tr>
@@ -44,8 +58,7 @@
         </tbody>
       </table>
       <br>
-      <h4>Instructor: <%= @instructor.first_name %> <%= @instructor.last_name %></h4>
-
+      <h4>Instructor: <%= @instructor.full_name %></h4>
     </div>
   </div>
 </div>

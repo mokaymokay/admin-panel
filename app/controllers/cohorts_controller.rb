@@ -13,7 +13,9 @@ class CohortsController < ApplicationController
   def show
     @cohort
     @course
+    @grade = Grade.new
     @students = @cohort.students
+    @students_not_in_cohort = Student.joins('LEFT OUTER JOIN grades ON grades.student_id = students.id').where.not(id: Grade.where(cohort_id: @cohort.id).pluck(:student_id))
     @instructor = @cohort.instructor
   end
 
@@ -40,10 +42,9 @@ class CohortsController < ApplicationController
   end
 
   def update
-    @cohort
     if @cohort.update(cohort_params)
-    flash[:alert] = "Cohort #{@cohort.name} updated successfully."
-    redirect_to course_cohorts_path(params[:course_id])
+      flash[:alert] = "Cohort #{@cohort.name} updated successfully."
+      redirect_to course_cohorts_path(params[:course_id])
     else
       render 'edit'
     end
