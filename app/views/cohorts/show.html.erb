@@ -10,6 +10,8 @@
     <div class="col-12">
       <h4>Cohort Roster</h4>
 
+      <%= render "shared/flash" %>
+
       <%= bootstrap_form_for @grade, :url => grades_path do |f| %>
           <%= f.collection_select(:student_id, @students_not_in_cohort, :id, :full_name, prompt: true) %>
           <%= f.hidden_field :cohort_id, value: params[:id] %>

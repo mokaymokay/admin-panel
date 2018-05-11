@@ -15,7 +15,7 @@ class CohortsController < ApplicationController
     @course
     @grade = Grade.new
     @students = @cohort.students
-    @students_not_in_cohort = Student.joins('LEFT OUTER JOIN grades ON grades.student_id = students.id').where.not(id: Grade.where(cohort_id: @cohort.id).pluck(:student_id))
+    @students_not_in_cohort = Student.joins('LEFT OUTER JOIN grades ON grades.student_id = students.id').where.not(id: Grade.where(cohort_id: @cohort.id).pluck(:student_id)).distinct
     @instructor = @cohort.instructor
   end
 

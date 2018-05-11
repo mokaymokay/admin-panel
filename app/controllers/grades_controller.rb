@@ -3,21 +3,19 @@ class GradesController < ApplicationController
   before_action :set_grade, only: [:edit, :update]
 
   def index
-
   end
 
   def new
-
   end
 
   def create
     @grade = Grade.new(grade_params)
     if @grade.save
-      redirect_to course_cohort_path(@grade.cohort.course, @grade.cohort)
       flash[:success] = "Student successfully added to cohort."
-    else
       redirect_to course_cohort_path(@grade.cohort.course, @grade.cohort)
+    else
       flash[:error] = "Cannot add student to cohort."
+      redirect_to course_cohort_path(@grade.cohort.course, @grade.cohort)
     end
   end
 
@@ -35,7 +33,6 @@ class GradesController < ApplicationController
   end
 
   def destroy
-
   end
 
   private
