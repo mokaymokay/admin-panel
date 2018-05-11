@@ -8,14 +8,14 @@
 
 require 'faker'
 
-Admin.create(first_name: "Albus", last_name: "Dumbledore").build_profile(username: "dumbledore", password: "muggles").save
-Admin.create(first_name: "Kay", last_name: "Mok").build_profile(username: "mokaymokay", password: "muggles").save
-Instructor.create(first_name: "Minerva", last_name: "McGonagall", age: 65, salary: 83543, degree: "PhD").build_profile(username: "mcgonagall", password: "muggles").save
-Instructor.create(first_name: "Severus", last_name: "Snape", age: 52, salary: 72094, degree: "Masters").build_profile(username: "snape", password: "muggles").save
-Instructor.create(first_name: "Filius", last_name: "Flitwick", age: 80, salary: 134931, degree: "PhD").build_profile(username: "flitwick", password: "muggles").save
-Instructor.create(first_name: "Remus", last_name: "Lupin", age: 47, salary: 63208, degree: "Masters").build_profile(username: "lupin", password: "muggles").save
-Instructor.create(first_name: "Gilderoy", last_name: "Lockhart", age: 35, salary: 60283, degree: "PhD").build_profile(username: "lockhart", password: "muggles").save
-Instructor.create(first_name: "Rubeus", last_name: "Hagrid", age: 62, salary: 30283, degree: "HS").build_profile(username: "hagrid", password: "muggles").save
+Admin.create(first_name: "Albus", last_name: "Dumbledore").build_user(email: "adumbledore@hogwarts.com", password: "muggles").save
+Admin.create(first_name: "Kay", last_name: "Mok").build_user(email: "kmok@hogwarts.com", password: "muggles").save
+Instructor.create(first_name: "Minerva", last_name: "McGonagall", age: 65, salary: 83543, degree: "PhD").build_user(email: "mmcgonagall@hogwarts.com", password: "muggles").save
+Instructor.create(first_name: "Severus", last_name: "Snape", age: 52, salary: 72094, degree: "Masters").build_user(email: "ssnape@hogwarts.com", password: "muggles").save
+Instructor.create(first_name: "Filius", last_name: "Flitwick", age: 80, salary: 134931, degree: "PhD").build_user(email: "fflitwick@hogwarts.com", password: "muggles").save
+Instructor.create(first_name: "Remus", last_name: "Lupin", age: 47, salary: 63208, degree: "Masters").build_user(email: "rlupin@hogwarts.com", password: "muggles").save
+Instructor.create(first_name: "Gilderoy", last_name: "Lockhart", age: 35, salary: 60283, degree: "PhD").build_user(email: "glockhart@hogwarts.com", password: "muggles").save
+Instructor.create(first_name: "Rubeus", last_name: "Hagrid", age: 62, salary: 30283, degree: "HS").build_user(email: "rhagrid@hogwarts.com", password: "muggles").save
 Student.create(first_name: "Harry", last_name: "Potter", age: 12, degree: "College")
 Student.create(first_name: "Ronald", last_name: "Weasley", age: 12, degree: "HS")
 Student.create(first_name: "Hermione", last_name: "Granger", age: 12, degree: "PhD")

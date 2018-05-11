@@ -12,7 +12,7 @@ class InstructorsController < ApplicationController
 
   def new
     @instructor = Instructor.new
-    @instructor.build_profile
+    @instructor.build_user
   end
 
   def create
@@ -53,7 +53,7 @@ class InstructorsController < ApplicationController
   def instructor_params
     params.require(:instructor).permit(
       :first_name, :last_name, :age, :salary, :degree,
-      profile_attributes: [:username, :password]
+      user_attributes: [:email, :password]
     )
   end
 

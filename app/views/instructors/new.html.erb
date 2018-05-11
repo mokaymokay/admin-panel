@@ -15,8 +15,8 @@
           <%= f.number_field :age, max: 149 %>
           <%= f.number_field :salary, min: 1 %>
           <%= f.select :degree, ['HS', 'College', 'Masters', 'PhD'] %>
-          <%= f.fields_for :profile do |p| %>
-            <%= p.text_field :username %>
+          <%= f.fields_for :user do |p| %>
+            <%= p.text_field :email %>
             <%= p.password_field :password %>
           <% end %>
           <%= f.submit "Add Instructor", class: "btn btn-outline-success" %>

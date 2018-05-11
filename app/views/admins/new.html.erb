@@ -12,9 +12,9 @@
       <%= bootstrap_form_for @admin do |f| %>
           <%= f.text_field :first_name %>
           <%= f.text_field :last_name %>
-          <%= f.fields_for :profile do |p| %>
-            <%= p.text_field :username %>
-            <%= p.password_field :password %>
+          <%= f.fields_for :user do |p| %>
+            <%= p.text_field :email %>
+            <!-- <%= p.password_field :password %> -->
           <% end %>
           <%= f.submit "Add Admin", class: "btn btn-outline-success" %>
       <% end %>

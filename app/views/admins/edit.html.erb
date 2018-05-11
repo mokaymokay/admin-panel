@@ -12,11 +12,7 @@
       <%= bootstrap_form_for @admin do |f| %>
           <%= f.text_field :first_name %>
           <%= f.text_field :last_name %>
-          <!-- TODO: currently unable to edit password since Rails filters out password -->
-          <!-- <%= f.fields_for :profile do |p| %>
-            <%= p.text_field :username %>
-            <%= p.password_field :password %>
-          <% end %> -->
+          <%= f.text_field :email %>
           <%= f.submit "Update", class: "btn btn-outline-warning" %>
           <%= link_to 'Delete', admin_path, :method => :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-outline-danger float-right' %>
       <% end %>

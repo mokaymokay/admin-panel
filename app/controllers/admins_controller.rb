@@ -1,6 +1,7 @@
 class AdminsController < ApplicationController
 
   before_action :set_admin, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   def index
     @admins = Admin.all
@@ -12,7 +13,7 @@ class AdminsController < ApplicationController
 
   def new
     @admin = Admin.new
-    @admin.build_profile
+    @admin.build_user
   end
 
   def create
@@ -53,7 +54,7 @@ class AdminsController < ApplicationController
   def admin_params
     params.require(:admin).permit(
       :first_name, :last_name, :age, :degree,
-      profile_attributes: [:username, :password]
+      user_attributes: [:email, :password]
     )
   end
 end
