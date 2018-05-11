@@ -1,0 +1,7 @@
+<%= bootstrap_form_for(@student, remote: true) do |f| %>
+  <%= f.text_field :first_name %>
+  <%= f.text_field :last_name %>
+  <%= f.number_field :age, max: 149 %>
+  <%= f.select :degree, ['HS', 'College', 'Masters', 'PhD'] %>
+  <%= f.submit "Update", class: "btn btn-outline-warning" %>
+<% end %>

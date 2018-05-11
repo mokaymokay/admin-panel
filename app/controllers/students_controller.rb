@@ -20,7 +20,8 @@ class StudentsController < ApplicationController
       flash[:success] = "Student '#{@student.full_name}' created successfully."
       redirect_to students_path
     else
-      render('new')
+      flash[:error] = "Please try again."
+      # render('new')
     end
   end
 

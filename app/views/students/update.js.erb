@@ -1,0 +1,3 @@
+studentrow = document.getElementById("edit_student_<%= @student.id %>");
+console.log(studentrow);
+studentrow.outerHTML = "<%= j render partial: "student", locals: { student: @student } %>";
