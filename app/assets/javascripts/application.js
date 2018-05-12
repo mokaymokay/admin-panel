@@ -15,6 +15,7 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require sb-admin
+//= require jquery.easing
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks

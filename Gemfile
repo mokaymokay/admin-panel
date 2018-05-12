@@ -67,6 +67,7 @@ gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'font-awesome-rails'
 # JS
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
+gem 'jquery-easing-rails'
 # App
 gem 'faker'
 gem "bootstrap_form",
