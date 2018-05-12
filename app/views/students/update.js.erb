@@ -1,3 +1,4 @@
+// why won't this file get loaded
 studentrow = document.getElementById("edit_student_<%= @student.id %>");
-console.log(studentrow);
+console.log(studentrow.outerHTML);
 studentrow.outerHTML = "<%= j render partial: "student", locals: { student: @student } %>";

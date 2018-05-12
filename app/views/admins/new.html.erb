@@ -14,7 +14,7 @@
           <%= f.text_field :last_name %>
           <%= f.fields_for :user do |p| %>
             <%= p.text_field :email %>
-            <!-- <%= p.password_field :password %> -->
+            <%= p.password_field :password %>
           <% end %>
           <%= f.submit "Add Admin", class: "btn btn-outline-success" %>
       <% end %>
