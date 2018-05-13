@@ -1,6 +1,7 @@
 // Make variables available for redeclaration throughout app
 {
  var studentrow;
+ var instructorrow;
  var modal;
 }
 

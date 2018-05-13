@@ -6,6 +6,6 @@
   <td><%= instructor.salary %></td>
   <td><%= instructor.degree %></td>
   <td><%= link_to("Details", instructor_path(instructor), :class => 'btn btn-outline-primary btn-sm') %></td>
-  <td><%= link_to("Edit", edit_instructor_path(instructor), remote: true, :class => 'btn btn-outline-warning btn-sm') %></td>
-  <td><%= link_to "Delete", instructor_path(instructor), remote: true, :method => :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-outline-danger btn-sm' %></td>
+  <td><%= link_to("Edit", edit_instructor_path(instructor), remote: true, data: { toggle: "modal", target: "#editInstructorModal" }, class: 'btn btn-outline-warning btn-sm') %></td>
+  <td><%= link_to "Delete", instructor_path(instructor), remote: true, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-danger btn-sm' %></td>
 </tr>

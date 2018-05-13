@@ -8,7 +8,8 @@
   <div class="row">
     <div class="col-12">
       <!-- form flash messages -->
-      <%= render "shared/flash", locals: { flash: :flash } %>
+      <div id="flash_messages">
+      </div>
       <!-- add button and page title -->
       <%= render partial: "shared/table_heading", locals: { body: "Add New Student", url: new_student_path, modalname: "#addStudentModal" } %>
 
@@ -31,7 +32,6 @@
           <% end %>
         </tbody>
       </table>
-      <br>
 
       <div class="modal fade" id="addStudentModal" tabindex="-1" role="dialog" aria-labelledby="addStudentModal" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
