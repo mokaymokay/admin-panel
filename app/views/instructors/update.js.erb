@@ -1,11 +1,11 @@
 // manually toggle modal
-$("#editStudentModal").modal('toggle');
+$("#editInstructorModal").modal('toggle');
 // re-render edited element
-studentrow = document.getElementById("student_<%= @student.id %>");
-studentrow.outerHTML = "<%= j render partial: "student", locals: { student: @student } %>";
+instructorrow = document.getElementById("instructor_<%= @instructor.id %>");
+instructorrow.outerHTML = "<%= j render partial: "instructor", locals: { instructor: @instructor } %>";
 // display flash messages
 $("#flash_messages").html("<%= j (render partial: 'shared/flash' , locals: { flash: flash }).html_safe %>");
 // turn form partial back into span
-$("#edit_student_<%= @student.id %>").replaceWith("<span id='edit-form'></span>");
+$("#edit_instructor_<%= @instructor.id %>").replaceWith("<span id='edit-form'></span>");
 // scroll to top
 $(document).ready(function () { $('html, body').animate({scrollTop:0}, 100); });

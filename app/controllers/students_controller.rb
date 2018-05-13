@@ -10,6 +10,7 @@ class StudentsController < ApplicationController
     @student
   end
 
+  # GET /students/new
   def new
     @student = Student.new
   end
@@ -19,10 +20,6 @@ class StudentsController < ApplicationController
     @student = Student.new(student_params)
     if @student.save
       flash[:success] = "Student '#{@student.full_name}' created successfully."
-      redirect_to students_path
-    else
-      flash[:error] = "Please try again."
-      # render('new')
     end
   end
 
@@ -35,10 +32,6 @@ class StudentsController < ApplicationController
   def update
     if @student.update(student_params)
       flash[:alert] = "Student '#{@student.full_name}' updated successfully."
-      redirect_to students_path
-    else
-      flash[:error] = "Please try again."
-      # render 'edit'
     end
   end
 

@@ -179,9 +179,11 @@
     </div>
   </nav>
   <div class="content-wrapper">
-    <div class="alert">
-      <%= alert %>
-    </div>
+    <% if !alert.blank? %>
+      <div class="alert">
+        <%= alert %>
+      </div>
+      <% end %>
     <%= yield %>
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->

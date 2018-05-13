@@ -1,10 +1,10 @@
 // add element we just created to the DOM
-document.getElementById("all_students").insertAdjacentHTML("beforeend", "<%= j render partial: "student", locals: { student: @student } %>");
+document.getElementById("all_instructors").insertAdjacentHTML("beforeend", "<%= j render partial: "instructor", locals: { instructor: @instructor } %>");
 // manually toggle modal
-$("#addStudentModal").modal('toggle');
+$("#addInstructorModal").modal('toggle');
 // display flash messages
 $("#flash_messages").html("<%= j (render partial: 'shared/flash' , locals: { flash: flash }).html_safe %>");
 // reset form
-document.getElementById("new_student").reset();
+document.getElementById("new_instructor").reset();
 // scroll to top
 $(document).ready(function () { $('html, body').animate({scrollTop:0}, 100); });

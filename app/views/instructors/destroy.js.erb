@@ -1,4 +1,4 @@
-studentrow = document.getElementById("student_<%= @student.id %>");
-studentrow.remove();
+instructorrow = document.getElementById("instructor_<%= @instructor.id %>");
+instructorrow.remove();
 $("#flash_messages").html("<%= j (render partial: 'shared/flash' , locals: { flash: flash }).html_safe %>");
 $(document).ready(function () { $('html, body').animate({scrollTop:0}, 100); });
