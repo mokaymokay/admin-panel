@@ -1,0 +1,10 @@
+// add element we just created to the DOM
+document.getElementById("all_admins").insertAdjacentHTML("beforeend", "<%= j render partial: "admin", locals: { admin: @admin } %>");
+// manually toggle modal
+$("#addAdminModal").modal('toggle');
+// display flash messages
+$("#flash_messages").html("<%= j (render partial: 'shared/flash' , locals: { flash: flash }).html_safe %>");
+// reset form
+document.getElementById("new_admin").reset();
+// scroll to top
+$(document).ready(function () { $('html, body').animate({scrollTop:0}, 100); });
