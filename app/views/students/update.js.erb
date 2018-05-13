@@ -1,4 +1,3 @@
-console.log("hitting update action");
 // manually toggle modal
 $("#editStudentModal").modal('toggle');
 // re-render edited element
@@ -8,4 +7,5 @@ studentrow.outerHTML = "<%= j render partial: "student", locals: { student: @stu
 $("#flash_messages").html("<%= j (render partial: 'shared/flash' , locals: { flash: flash }).html_safe %>");
 // turn form partial back into span
 $("#edit_student_<%= @student.id %>").replaceWith("<span id='edit-form'></span>");
+// scroll to top
 $(document).ready(function () { $('html, body').animate({scrollTop:0}, 100); });
