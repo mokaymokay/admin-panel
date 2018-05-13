@@ -1,2 +1,3 @@
-studentrow = document.getElementById("student_<%= @student.id %>")
-studentrow.outerHTML = "<%= j render 'edit_form' %>";
+modal = document.getElementById("edit-form")
+modal.outerHTML = "<%= j render partial: "form", locals: { student: @student } %>";
+console.log("edit form is rendered");

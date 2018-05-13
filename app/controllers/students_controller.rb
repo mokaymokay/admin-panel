@@ -4,7 +4,8 @@ class StudentsController < ApplicationController
 
   def index
     @students = Student.all
-    @student = Student.new
+    # won't need this if i use new.js.erb and change outerHTML to render partial
+    @new_student = Student.new
   end
 
   def show

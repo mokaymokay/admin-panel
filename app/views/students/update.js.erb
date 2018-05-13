@@ -1,4 +1,11 @@
-// why won't this file get loaded
-studentrow = document.getElementById("edit_student_<%= @student.id %>");
-console.log(studentrow.outerHTML);
+console.log("hitting update action");
+// manually toggle modal
+$("#editStudentModal").modal('toggle');
+// re-render edited element
+studentrow = document.getElementById("student_<%= @student.id %>");
 studentrow.outerHTML = "<%= j render partial: "student", locals: { student: @student } %>";
+// display flash messages
+$("#flash_messages").html("<%= j (render partial: 'shared/flash' , locals: { flash: flash }).html_safe %>");
+// turn form partial back into span
+$("#edit_student_<%= @student.id %>").replaceWith("<span id='edit-form'></span>");
+$(document).ready(function () { $('html, body').animate({scrollTop:0}, 100); });
