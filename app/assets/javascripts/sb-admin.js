@@ -1,4 +1,8 @@
-let studentrow;
+// Make variables available for redeclaration throughout app
+{
+ var studentrow;
+ var modal;
+}
 
 (function($) {
   "use strict"; // Start of use strict

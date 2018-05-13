@@ -1,7 +1,10 @@
-<% if !flash.blank? %>
-  <% flash.each do |key, value| %>
-    <div class="<%= flash_class(key) %>">
-      <%= value %>
-    </div>
+<div id="flash_messages">
+  <% if !flash.blank? %>
+    <% flash.each do |type, message| %>
+      <div class="<%= flash_class(type) %>">
+        <%= message %>
+      </div>
+    <% end %>
+    <% flash.clear %>
   <% end %>
-<% end %>
+</div>

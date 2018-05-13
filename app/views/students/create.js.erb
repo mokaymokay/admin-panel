@@ -1,2 +1,4 @@
-form.style.display = "none";
 document.getElementById("all_students").insertAdjacentHTML("beforeend", "<%= j render partial: "student", locals: { student: @student } %>");
+$("#addStudentModal").modal('toggle');
+$("#flash_messages").html("<%= j (render partial: 'shared/flash' , locals: { flash: flash }).html_safe %>");
+document.getElementById("new_student").reset();

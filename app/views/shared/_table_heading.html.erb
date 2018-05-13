@@ -1,6 +1,6 @@
 <div class="mb-4">
   <h4>
     <%= @page_title %>
-    <%= link_to(body, url, remote: true, class: "btn btn-outline-success float-right") %>
+    <%= link_to(body, url, class: "btn btn-outline-success float-right", data: { toggle: "modal", target: modalname}) %>
   </h4>
 </div>

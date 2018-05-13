@@ -7,10 +7,10 @@
   </ol>
   <div class="row">
     <div class="col-12">
-
+    <!-- form flash messages -->
     <%= render "shared/flash" %>
-
-    <%= render partial: "shared/table_heading", :locals => { :body => 'Add New Instructor', :url => new_instructor_path } %>
+    <!-- add button and page title -->
+    <%= render partial: "shared/table_heading", :locals => { :body => 'Add New Instructor', :url => new_instructor_path, modalname: "#addInstructorModal" } %>
 
       <table class="table table-hover">
         <thead>
@@ -26,24 +26,12 @@
             <th></th>
           </tr>
         </thead>
-        <tbody>
+        <tbody id="all_instructors">
           <% @instructors.each do |instructor| %>
-          <tr>
-            <td><%= instructor.id %></td>
-            <td><%= instructor.first_name %></td>
-            <td><%= instructor.last_name %></td>
-            <td><%= instructor.age %></td>
-            <td><%= instructor.salary %></td>
-            <td><%= instructor.degree %></td>
-            <td><%= link_to("Details", instructor_path(instructor), :class => 'btn btn-outline-primary btn-sm') %></td>
-            <td><%= link_to("Edit", edit_instructor_path(instructor), :class => 'btn btn-outline-warning btn-sm') %></td>
-            <td><%= link_to "Delete", instructor_path(instructor), :method => :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-outline-danger btn-sm' %></td>
-            </form>
-          </tr>
+            <%= render instructor %>
           <% end %>
         </tbody>
       </table>
-
     </div>
   </div>
 </div>
