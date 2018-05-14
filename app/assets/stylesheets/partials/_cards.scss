@@ -3,10 +3,10 @@
 .card-body-icon {
   position: absolute;
   z-index: 0;
-  top: -25px;
-  right: -25px;
+  top: -23px;
+  right: -18px;
 
-  font-size: 5rem;
+  font-size: 6em;
   @include rotate;
 }
 
@@ -21,4 +21,14 @@
   @media (min-width: 1200px) {
     column-count: 2;
   }
+}
+
+// Card sizing
+.card-body {
+  flex: 1 1 auto;
+  padding: 4.25rem;
+}
+
+#welcome-cards .mr-5 {
+  font-size: 2.5em;
 }
