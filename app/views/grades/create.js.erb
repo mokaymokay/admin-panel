@@ -1,0 +1,8 @@
+// add element we just created to the DOM
+document.getElementById("all_students").insertAdjacentHTML("beforeend", "<%= j render partial: 'cohorts/cohort_student', locals: { student: @grade.student } %>");
+// display flash messages
+$("#flash_messages").html("<%= j (render partial: 'shared/flash' , locals: { flash: flash }).html_safe %>");
+// reset form
+document.getElementById("new_grade").reset();
+// scroll to top
+$(document).ready(function () { $('html, body').animate({scrollTop:0}, 100); });

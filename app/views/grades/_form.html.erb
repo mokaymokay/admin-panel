@@ -1,0 +1,7 @@
+<%= bootstrap_form_for grade, remote: true, authenticity_token: true, data: { type: :script } do |f| %>
+  <%= f.radio_button :pass, 'true', label: "Pass", inline: true %>
+  <%= f.radio_button :pass, 'false', label: "Fail", inline: true %>
+  <%= f.hidden_field :cohort_id, value: grade.cohort.id %>
+  <%= f.hidden_field :student_id, value: grade.student.id %>
+  <%= f.submit "Update Grade", class: "btn btn-outline-warning" %>
+<% end %>
