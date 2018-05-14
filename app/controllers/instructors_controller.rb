@@ -19,6 +19,10 @@ class InstructorsController < ApplicationController
     @instructor = Instructor.new(instructor_params)
     if @instructor.save
       flash[:success] = "Instructor '#{@instructor.full_name}' created successfully."
+      respond_to { |format|
+        format.html { redirect_to instructors_path }
+        format.js
+      }
     end
   end
 

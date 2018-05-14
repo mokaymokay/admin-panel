@@ -20,6 +20,10 @@ class AdminsController < ApplicationController
     @admin = Admin.new(admin_params)
     if @admin.save
       flash[:success] = "Admin '#{@admin.full_name}' created successfully."
+      respond_to { |format|
+        format.html { redirect_to admins_path }
+        format.js
+      }
     end
   end
 

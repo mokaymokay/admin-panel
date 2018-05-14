@@ -1,0 +1,10 @@
+// add element we just created to the DOM
+document.getElementById("all_courses").insertAdjacentHTML("beforeend", "<%= j render partial: "course", locals: { course: @course } %>");
+// manually toggle modal
+$("#addCourseModal").modal('toggle');
+// display flash messages
+$("#flash_messages").html("<%= j (render partial: 'shared/flash' , locals: { flash: flash }).html_safe %>");
+// reset form
+document.getElementById("new_course").reset();
+// scroll to top
+$(document).ready(function () { $('html, body').animate({scrollTop:0}, 100); });

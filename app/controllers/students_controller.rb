@@ -20,6 +20,10 @@ class StudentsController < ApplicationController
     @student = Student.new(student_params)
     if @student.save
       flash[:success] = "Student '#{@student.full_name}' created successfully."
+      respond_to { |format|
+        format.html { redirect_to students_path }
+        format.js
+      }
     end
   end
 

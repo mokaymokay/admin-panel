@@ -6,9 +6,8 @@
     <li class="breadcrumb-item"><a href="<%= courses_path %>">Courses</a></li>
     <li class="breadcrumb-item active"><%= @page_title %></li>
   </ol>
-  <div class="row">
-    <div class="col-12">
-
+  <div class="row justify-content-center">
+    <div class="col-xl-4 col-sm-6">
       <%= bootstrap_form_for @course do |f| %>
           <%= f.text_field :name %>
           <%= f.number_field :hours %>

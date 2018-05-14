@@ -1,0 +1,11 @@
+// manually toggle modal
+$("#editCourseModal").modal('toggle');
+// re-render edited element
+row = document.getElementById("course_<%= @course.id %>");
+row.outerHTML = "<%= j render partial: "course", locals: { course: @course } %>";
+// display flash messages
+$("#flash_messages").html("<%= j (render partial: 'shared/flash' , locals: { flash: flash }).html_safe %>");
+// turn form partial back into span
+$("#edit_course_<%= @course.id %>").replaceWith("<span id='edit-form'></span>");
+// scroll to top
+$(document).ready(function () { $('html, body').animate({scrollTop:0}, 100); });

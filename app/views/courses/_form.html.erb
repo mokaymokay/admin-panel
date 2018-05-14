@@ -1,0 +1,5 @@
+<%= bootstrap_form_for course, remote: true, authenticity_token: true, data: { type: :script } do |f| %>
+    <%= f.text_field :name %>
+    <%= f.number_field :hours %>
+    <%= f.submit "Submit", class: "btn btn-outline-secondary" %>
+<% end %>

@@ -8,9 +8,12 @@
   <div class="row">
     <div class="col-12">
 
-      <%= render "shared/flash" %>
+      <!-- form flash messages -->
+      <div id="flash_messages">
+        <%= render "shared/flash" %>
+      </div>
 
-      <%= render partial: "shared/table_heading", :locals => { :body => 'Add New Course', :url => new_course_path } %>
+      <%= render partial: "shared/table_heading", :locals => { :body => 'Add New Course', :url => new_course_path, modalname: "#addCourseModal" } %>
 
       <table class="table table-hover">
         <thead>
@@ -23,20 +26,44 @@
             <th></th>
           </tr>
         </thead>
-        <tbody>
+        <tbody id="all_courses">
           <% @courses.each do |course| %>
-          <tr>
-            <td><%= course.id %></td>
-            <td><%= course.name %></td>
-            <td><%= course.hours %></td>
-            <td><%= link_to("Show Cohorts", course_cohorts_path(course), :class => 'btn btn-outline-primary btn-sm') %></td>
-            <td><%= link_to("Edit", edit_course_path(course), :class => 'btn btn-outline-warning btn-sm') %></td>
-            <td><%= link_to "Delete", course_path(course), :method => :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-outline-danger btn-sm' %></td>
-            </form>
-          </tr>
+            <%= render course %>
           <% end %>
         </tbody>
       </table>
+
+      <div class="modal fade" id="addCourseModal" tabindex="-1" role="dialog" aria-labelledby="addCourseModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Add Course</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <span id='add-form'></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="editCourseModal" tabindex="-1" role="dialog" aria-labelledby="editCourseModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Edit Course</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div id="edit-modal-holder" class="modal-body">
+              <span id='edit-form'></span>
+            </div>
+          </div>
+        </div>
+      </div>
 
     </div>
   </div>

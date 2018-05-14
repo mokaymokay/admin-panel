@@ -1,0 +1,4 @@
+row = document.getElementById("course_<%= @course.id %>");
+row.remove();
+$("#flash_messages").html("<%= j (render partial: 'shared/flash' , locals: { flash: flash }).html_safe %>");
+$(document).ready(function () { $('html, body').animate({scrollTop:0}, 100); });

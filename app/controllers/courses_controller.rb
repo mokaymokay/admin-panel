@@ -18,9 +18,10 @@ class CoursesController < ApplicationController
     @course = Course.new(course_params)
     if @course.save
       flash[:success] = "Course '#{@course.name}' created successfully."
-      redirect_to courses_path
-    else
-      render('new')
+      respond_to { |format|
+        format.html { redirect_to courses_path }
+        format.js
+      }
     end
   end
 
@@ -31,16 +32,12 @@ class CoursesController < ApplicationController
   def update
     if @course.update(course_params)
       flash[:alert] = "Course '#{@course.name}' updated successfully."
-      redirect_to courses_path
-    else
-      render 'edit'
     end
   end
 
   def destroy
     @course.destroy
     flash[:error] = "Course '#{@course.name}' destroyed successfully."
-    redirect_to courses_path
   end
 
   private

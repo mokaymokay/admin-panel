@@ -1,0 +1,21 @@
+<% @page_title = "Add Student" %>
+
+<div class="container-fluid">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+    <li class="breadcrumb-item"><a href="<%= students_path %>">Students</a></li>
+    <li class="breadcrumb-item active"><%= @page_title %></li>
+  </ol>
+  <div class="row justify-content-center">
+    <div class="col-xl-4 col-sm-6">
+      <%= bootstrap_form_for @student do |f| %>
+      <%= f.text_field :first_name %>
+      <%= f.text_field :last_name %>
+      <%= f.number_field :age, max: 149 %>
+      <%= f.select :degree, ['HS', 'College', 'Masters', 'PhD'] %>
+          <%= f.submit "Add Student", class: "btn btn-outline-success" %>
+      <% end %>
+
+    </div>
+  </div>
+</div>
