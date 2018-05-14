@@ -1,0 +1,8 @@
+<%= bootstrap_form_for cohort, url: url, remote: true, authenticity_token: true, data: { type: :script } do |f| %>
+    <%= f.text_field :name %>
+    <%= f.date_field :start_date %>
+    <%= f.date_field :end_date %>
+    <%= f.collection_select(:instructor_id, instructors, :id, :full_name, prompt: true) %>
+    <%= f.hidden_field :course_id, value: params[:course_id] %>
+    <%= f.submit "Submit", class: "btn btn-outline-success" %>
+<% end %>

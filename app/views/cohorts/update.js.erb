@@ -1,0 +1,11 @@
+// manually toggle modal
+$("#editCohortModal").modal('toggle');
+// re-render edited element
+row = document.getElementById("cohort_<%= @cohort.id %>");
+row.outerHTML = "<%= j render partial: "cohort", locals: { cohort: @cohort } %>";
+// display flash messages
+$("#flash_messages").html("<%= j (render partial: 'shared/flash' , locals: { flash: flash }).html_safe %>");
+// turn form partial back into span
+$("#edit_cohort_<%= @cohort.id %>").replaceWith("<span id='edit-form'></span>");
+// scroll to top
+$(document).ready(function () { $('html, body').animate({scrollTop:0}, 100); });

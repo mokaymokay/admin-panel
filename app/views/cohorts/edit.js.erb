@@ -1,0 +1,7 @@
+// if edit form already exists, replace with edit form span
+if (document.getElementById("edit-form") === null) {
+  document.getElementById("edit-modal-holder").innerHTML = "<span id='edit-form'></span>";
+}
+// replace edit form span with form partial
+modal = document.getElementById("edit-form")
+modal.outerHTML = "<%= j render partial: "form", locals: { cohort: @cohort, instructors: @instructors, url: course_cohort_path } %>"

@@ -2,7 +2,7 @@
   <td><%= course.id %></td>
   <td><%= course.name %></td>
   <td><%= course.hours %></td>
-  <td><%= link_to("Show Cohorts", course_cohorts_path(course), :class => 'btn btn-outline-primary btn-sm') %></td>
+  <td><%= link_to("Show Cohorts", course_cohorts_path(course), class: 'btn btn-outline-primary btn-sm') %></td>
   <td><%= link_to("Edit", edit_course_path(course), remote: true, data: { toggle: "modal", target: "#editCourseModal" }, class: "btn btn-outline-warning btn-sm") %></td>
   <td><%= link_to "Delete", course_path(course), remote: true, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger btn-sm" %></td>
 </tr>
