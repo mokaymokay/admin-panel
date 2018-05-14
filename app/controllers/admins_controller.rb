@@ -1,7 +1,7 @@
 class AdminsController < ApplicationController
 
   before_action :set_admin, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
 
   def index
     @admins = Admin.all
@@ -20,9 +20,6 @@ class AdminsController < ApplicationController
     @admin = Admin.new(admin_params)
     if @admin.save
       flash[:success] = "Admin '#{@admin.full_name}' created successfully."
-      redirect_to admins_path
-    else
-      render('new')
     end
   end
 
@@ -33,16 +30,12 @@ class AdminsController < ApplicationController
   def update
     if @admin.update(admin_params)
       flash[:alert] = "Admin '#{@admin.full_name}' updated successfully."
-      redirect_to admins_path
-    else
-      render 'edit'
     end
   end
 
   def destroy
     @admin.destroy
     flash[:error] = "Admin '#{@admin.full_name}' destroyed successfully."
-    redirect_to admins_path
   end
 
   private

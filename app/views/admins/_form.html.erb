@@ -1,0 +1,9 @@
+<%= bootstrap_form_for admin, remote: true, authenticity_token: true, data: { type: :script } do |f| %>
+    <%= f.text_field :first_name %>
+    <%= f.text_field :last_name %>
+    <%= f.fields_for :user do |p| %>
+      <%= p.text_field :email %>
+      <%= p.password_field :password %>
+    <% end %>
+    <%= f.submit "Submit", class: "btn btn-outline-secondary" %>
+<% end %>

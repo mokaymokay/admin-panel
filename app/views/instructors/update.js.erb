@@ -1,8 +1,8 @@
 // manually toggle modal
 $("#editInstructorModal").modal('toggle');
 // re-render edited element
-instructorrow = document.getElementById("instructor_<%= @instructor.id %>");
-instructorrow.outerHTML = "<%= j render partial: "instructor", locals: { instructor: @instructor } %>";
+row = document.getElementById("instructor_<%= @instructor.id %>");
+row.outerHTML = "<%= j render partial: "instructor", locals: { instructor: @instructor } %>";
 // display flash messages
 $("#flash_messages").html("<%= j (render partial: 'shared/flash' , locals: { flash: flash }).html_safe %>");
 // turn form partial back into span

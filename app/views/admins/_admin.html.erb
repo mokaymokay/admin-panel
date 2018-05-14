@@ -1,0 +1,8 @@
+<tr id="admin_<%= admin.id %>">
+  <td><%= admin.id %></td>
+  <td><%= admin.first_name %></td>
+  <td><%= admin.last_name %></td>
+  <td><%= admin.user.email %></td>
+  <td><%= link_to("Edit", edit_admin_path(admin), remote: true, data: { toggle: "modal", target: "#editAdminModal" }, class: 'btn btn-outline-warning btn-sm') %></td>
+  <td><%= link_to "Delete", admin_path(admin), remote: true, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-danger btn-sm' %></td>
+</tr>

@@ -1,0 +1,4 @@
+modal = document.getElementById("add-form");
+if (modal !== null) {
+  modal.outerHTML = "<%= j render partial: "form", locals: { admin: @admin } %>"
+}
