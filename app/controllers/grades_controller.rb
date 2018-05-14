@@ -12,7 +12,7 @@ class GradesController < ApplicationController
     @grade = Grade.new(grade_params)
     if @grade.save
       flash[:success] = "Student '#{@grade.student.full_name}' successfully added to cohort."
-      redirect_to course_cohort_path(@grade.cohort.course, @grade.cohort)
+      # redirect_to course_cohort_path(@grade.cohort.course, @grade.cohort)
     end
   end
 
@@ -23,7 +23,7 @@ class GradesController < ApplicationController
   def update
     if @grade.update(grade_params)
       flash[:alert] = "Grade for '#{@grade.student.full_name}' updated successfully."
-      redirect_to course_cohort_path(@grade.cohort.course, @grade.cohort)
+      # redirect_to course_cohort_path(@grade.cohort.course, @grade.cohort)
     end
   end
 

@@ -38,7 +38,7 @@
         </thead>
         <tbody id="all_students">
           <% @students.each do |student| %>
-            <%= render partial: 'cohort_student' , locals: { student: student }%>
+            <%= render partial: 'cohort_student', locals: { student: student, cohort: @cohort } %>
           <% end %>
         </tbody>
       </table>

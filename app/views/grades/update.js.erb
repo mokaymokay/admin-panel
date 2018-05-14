@@ -2,7 +2,7 @@
 $("#editGradeModal").modal('toggle');
 // re-render edited element
 row = document.getElementById("student_<%= @grade.student.id %>");
-row.outerHTML = "<%= j render partial: 'cohorts/cohort_student', locals: { student: @grade.student } %>";
+row.outerHTML = "<%= j render partial: 'cohorts/cohort_student', locals: { student: @grade.student, cohort: @grade.cohort } %>";
 // display flash messages
 $("#flash_messages").html("<%= j (render partial: 'shared/flash' , locals: { flash: flash }).html_safe %>");
 // turn form partial back into span

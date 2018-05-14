@@ -1,5 +1,5 @@
 // add element we just created to the DOM
-document.getElementById("all_students").insertAdjacentHTML("beforeend", "<%= j render partial: 'cohorts/cohort_student', locals: { student: @grade.student } %>");
+document.getElementById("all_students").insertAdjacentHTML("beforeend", "<%= j render partial: 'cohorts/cohort_student', locals: { student: @grade.student, cohort: @grade.cohort } %>");
 // display flash messages
 $("#flash_messages").html("<%= j (render partial: 'shared/flash' , locals: { flash: flash }).html_safe %>");
 // reset form
