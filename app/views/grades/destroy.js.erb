@@ -2,4 +2,9 @@ row = document.getElementById("student_<%= @grade.student.id %>");
 row.remove();
 $("#flash_messages").html("<%= j (render partial: 'shared/flash' , locals: { flash: flash }).html_safe %>");
 $(document).ready(function () { $('html, body').animate({scrollTop:0}, 100); });
-// TODO:  refresh form (turn form into a partial then append)
+// refresh new grade form
+$(row).on('ajax:success', function(event, data, status, xhr) {
+  $('#new_grade_container').load( document.URL + ' #new_grade_container', function() {
+    console.log("load performed!");
+  });
+});

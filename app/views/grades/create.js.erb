@@ -3,6 +3,13 @@ document.getElementById("all_students").insertAdjacentHTML("beforeend", "<%= j r
 // display flash messages
 $("#flash_messages").html("<%= j (render partial: 'shared/flash' , locals: { flash: flash }).html_safe %>");
 // reset form
-document.getElementById("new_grade").reset();
+// document.getElementById("new_grade").reset();
 // scroll to top
 $(document).ready(function () { $('html, body').animate({scrollTop:0}, 100); });
+// refresh form
+$('#new_grade').on('ajax:success', function(event, data, status, xhr) {
+  console.log("success");
+  $('#new_grade_container').load( document.URL + ' #new_grade_container', function() {
+    console.log("load performed!");
+  });
+});
