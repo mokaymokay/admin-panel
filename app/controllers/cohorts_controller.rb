@@ -30,7 +30,10 @@ class CohortsController < ApplicationController
     @cohort = Cohort.new(cohort_params)
     if @cohort.save
       flash[:success] = "Cohort '#{@cohort.name}' created successfully."
-      # redirect_to course_cohorts_path(params[:course_id])
+      respond_to { |format|
+        format.html { redirect_to course_cohorts_path(params[:course_id]) }
+        format.js
+      }
     end
   end
 

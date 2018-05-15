@@ -1,0 +1,21 @@
+<% @page_title = "Add Cohort" %>
+
+<div class="container-fluid">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+    <li class="breadcrumb-item"><a href="<%= course_cohorts_path(@course) %>"><%= @course.name %></a></li>
+    <li class="breadcrumb-item active"><%= @page_title %></li>
+  </ol>
+  <div class="row justify-content-center">
+    <div class="col-xl-4 col-sm-6 mb-4">
+    <%= bootstrap_form_for @cohort, url: course_cohorts_path do |f| %>
+        <%= f.text_field :name %>
+        <%= f.date_field :start_date %>
+        <%= f.date_field :end_date %>
+        <%= f.collection_select(:instructor_id, @instructors, :id, :full_name, prompt: true) %>
+        <%= f.hidden_field :course_id, value: params[:course_id] %>
+        <%= f.submit "Submit", class: "btn btn-outline-success" %>
+    <% end %>
+    </div>
+  </div>
+</div>

@@ -5,10 +5,10 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => "reload" %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => "reload" %>
+  <meta name="description" content="Admin panel for a magical bootcamp">
+  <meta name="author" content="Kay Mok">
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
   <%= favicon_link_tag %>
@@ -30,12 +30,12 @@
             <span class="nav-link-text">Dashboard</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Courses">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#Courses" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-university"></i>
             <span class="nav-link-text">Courses</span>
           </a>
-          <ul class="sidenav-second-level collapse" id="collapseExamplePages">
+          <ul class="sidenav-second-level collapse" id="Courses">
             <% @courses.each do |course| %>
             <li>
             <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#course<%= course.id %>"><%= course.name %></a>
@@ -74,7 +74,6 @@
           </a>
         </li>
       </ul>
-      <!-- Sidenav Toggler TODO: Delete if doesn't work -->
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">
           <a class="nav-link text-center" id="sidenavToggler">
