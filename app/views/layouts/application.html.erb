@@ -11,6 +11,7 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => "reload" %>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
+  <%= favicon_link_tag %>
   <title>Admin Panel: <%= @page_title || "Dashboard" %></title>
 </head>
 
@@ -73,6 +74,7 @@
           </a>
         </li>
       </ul>
+      <!-- Sidenav Toggler TODO: Delete if doesn't work -->
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">
           <a class="nav-link text-center" id="sidenavToggler">
