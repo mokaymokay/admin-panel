@@ -172,10 +172,16 @@
             </div>
           </form>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
-            <i class="fa fa-fw fa-sign-out"></i>Logout</a>
-        </li>
+        <% if user_signed_in? %>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+              <i class="fa fa-fw fa-sign-out"></i>Logout</a>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to fa_icon('sign-in', text: "Login"), new_user_session_path, class: "nav-link" %>
+          </li>
+        <% end %>
       </ul>
     </div>
   </nav>
@@ -213,7 +219,7 @@
           <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="login.html">Logout</a>
+            <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "btn btn-primary") %>
           </div>
         </div>
       </div>
