@@ -5,7 +5,7 @@
   <!-- Icon Cards-->
   <div id="welcome-cards" class="row justify-content-md-center">
 
-    <div class="col-md-4 mb-3 mx-2">
+    <div class="col-md-5 mb-3 m-1">
       <div class="card text-white bg-danger o-hidden h-100">
         <div class="card-body">
           <div class="card-body-icon">
@@ -22,7 +22,7 @@
       </div>
     </div>
 
-    <div class="col-md-4 mb-3 mx-2">
+    <div class="col-md-5 mb-3 m-1">
       <div class="card text-white bg-warning o-hidden h-100">
         <div class="card-body">
           <div class="card-body-icon">
@@ -33,7 +33,7 @@
       </div>
     </div>
 
-    <div class="col-md-4 mb-3 mx-2">
+    <div class="col-md-5 mb-3 m-1">
       <div class="card text-white bg-success o-hidden h-100">
         <div class="card-body">
           <div class="card-body-icon">
@@ -50,7 +50,7 @@
       </div>
     </div>
 
-    <div class="col-md-4 mb-3 mx-2">
+    <div class="col-md-5 mb-3 m-1">
       <div class="card text-white bg-primary o-hidden h-100">
         <div class="card-body">
           <div class="card-body-icon">
@@ -68,16 +68,15 @@
     </div>
 
   </div>
-  <%# TODO: add more buttons (HTML add) %>
   <div class="row justify-content-sm-center text-center">
-    <div class="col-md-12 mt-5 mb-4">
+    <div class="col-12 mt-5 mb-2">
       <h4>Quick Links</h4>
     </div>
-    <div class="btn-toolbar mb-4">
-      <a href="/courses/new" class="btn btn-secondary mx-1" role="button">Add Course</a>
-      <a href="/students/new" class="btn btn-secondary mx-1" role="button">Add Student</a>
-      <a href="/instructors/new" class="btn btn-secondary mx-1" role="button">Add Instructor</a>
-      <a href="/admins/new" class="btn btn-secondary mx-1" role="button">Add Admin</a>
+    <div class="col-12 mb-4 text-center">
+      <a href="<%= new_course_path %>" class="btn btn-secondary m-1 quick-links-btn" role="button">Add Course</a>
+      <a href="<%= new_student_path %>" class="btn btn-secondary m-1 quick-links-btn" role="button">Add Student</a>
+      <a href="<%= new_instructor_path %>" class="btn btn-secondary m-1 quick-links-btn" role="button">Add Instructor</a>
+      <a href="<%= new_admin_path %>" class="btn btn-secondary m-1 quick-links-btn" role="button">Add Admin</a>
     </div>
   </div>
 </div>

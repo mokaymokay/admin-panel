@@ -30,5 +30,16 @@
 }
 
 #welcome-cards .mr-5 {
-  font-size: 2.5em;
+  font-size: 1.5em;
+
+  @media (min-width: 576px) {
+    font-size: 2.5em;
+  }
+}
+
+@media all and (max-width: 576px) {
+  .quick-links-btn {
+    width: 100%;
+    display: block;
+  }
 }
