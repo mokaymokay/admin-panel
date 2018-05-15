@@ -1,2 +1,22 @@
-<h1>Students#show</h1>
-<p>Find me in app/views/students/show.html.erb</p>
+<% @page_title = "#{@student.full_name}" %>
+
+<div class="container-fluid">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+    <li class="breadcrumb-item"><a href="<%= students_path %>">Students</a></li>
+    <li class="breadcrumb-item active"><%= @page_title %></li>
+  </ol>
+  <div class="row">
+    <div class="col-12">
+      <br>
+      <h5>Cohorts</h5>
+      <% if @student.cohorts.any? %>
+        <% @student.cohorts.each do |cohort| %>
+          <li><%= link_to("#{cohort.name}", course_cohort_path(cohort.course, cohort)) %> (<%= cohort.start_date.strftime("%b %d, %Y") %> - <%= cohort.end_date.strftime("%b %d, %Y") %>) </li>
+        <% end %>
+      <% else %>
+        <li>Not currently enrolled in any cohorts</li>
+      <% end %>
+    </div>
+  </div>
+</div>
