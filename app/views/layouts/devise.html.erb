@@ -71,12 +71,12 @@
     </div>
   </nav>
   <div class="content-wrapper">
-    <!-- devise flash messages -->
-    <% if !alert.blank? %>
-      <div class="alert">
-        <%= alert %>
+    <!-- flash messages -->
+    <div class="container-fluid">
+      <div id="flash_messages">
+        <%= render "shared/flash" %>
       </div>
-      <% end %>
+    </div>
 
     <div class="container-fluid">
       <%= yield %>
