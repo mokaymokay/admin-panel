@@ -1,7 +1,16 @@
 Rails.application.routes.draw do
-  # define root view
-  root to: 'welcome#index'
 
+  # root route if signed in
+  authenticated do
+    root 'welcome#index', as: :authenticated_root
+  end
+
+  # default root route
+  devise_scope :user do
+    root to: 'devise/sessions#new'
+  end
+
+  # rename paths
   devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout'}
 
   resources :courses do
