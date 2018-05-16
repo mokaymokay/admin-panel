@@ -1,6 +1,8 @@
 <div class="mb-4">
   <h4>
     <%= @page_title %>
-    <%= link_to(body, url, class: "btn btn-outline-success float-right", remote: true, data: { toggle: "modal", target: modalname }) %>
+    <% if user_signed_in? && current_user.userable_type == "Admin" %>
+      <%= link_to(body, url, class: "btn btn-outline-success float-right", remote: true, data: { toggle: "modal", target: modalname }) %>
+    <% end %>
   </h4>
 </div>

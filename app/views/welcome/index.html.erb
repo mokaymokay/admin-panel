@@ -68,15 +68,19 @@
     </div>
 
   </div>
-  <div class="row justify-content-sm-center text-center">
-    <div class="col-12 mt-5 mb-2">
-      <h4>Quick Links</h4>
+
+  <% if user_signed_in? && current_user.userable_type == "Admin" %>
+    <div class="row justify-content-sm-center text-center">
+      <div class="col-12 mt-5 mb-2">
+        <h4>Quick Links</h4>
+      </div>
+      <div class="col-12 mb-4 text-center">
+        <a href="<%= new_course_path %>" class="btn btn-outline-danger m-1 quick-links-btn" role="button">Add Course</a>
+        <a href="<%= new_student_path %>" class="btn btn-outline-success m-1 quick-links-btn" role="button">Add Student</a>
+        <a href="<%= new_instructor_path %>" class="btn btn-outline-primary m-1 quick-links-btn" role="button">Add Instructor</a>
+        <a href="<%= new_admin_path %>" class="btn btn-outline-secondary m-1 quick-links-btn" role="button">Add Admin</a>
+      </div>
     </div>
-    <div class="col-12 mb-4 text-center">
-      <a href="<%= new_course_path %>" class="btn btn-outline-danger m-1 quick-links-btn" role="button">Add Course</a>
-      <a href="<%= new_student_path %>" class="btn btn-outline-success m-1 quick-links-btn" role="button">Add Student</a>
-      <a href="<%= new_instructor_path %>" class="btn btn-outline-primary m-1 quick-links-btn" role="button">Add Instructor</a>
-      <a href="<%= new_admin_path %>" class="btn btn-outline-secondary m-1 quick-links-btn" role="button">Add Admin</a>
-    </div>
-  </div>
+  <% end %>
+
 </div>

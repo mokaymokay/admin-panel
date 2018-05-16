@@ -5,6 +5,8 @@
   <td><%= student.age %></td>
   <td><%= student.degree %></td>
   <td><%= link_to("Details", student_path(student), class: "btn btn-outline-primary btn-sm") %></td>
-  <td><%= link_to("Edit", edit_student_path(student), remote: true, data: { toggle: "modal", target: "#editStudentModal" }, class: "btn btn-outline-warning btn-sm") %></td>
-  <td><%= link_to "Delete", student_path(student), remote: true, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger btn-sm" %></td>
+  <% if user_signed_in? && current_user.userable_type == "Admin" %>
+    <td><%= link_to("Edit", edit_student_path(student), remote: true, data: { toggle: "modal", target: "#editStudentModal" }, class: "btn btn-outline-warning btn-sm") %></td>
+    <td><%= link_to "Delete", student_path(student), remote: true, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger btn-sm" %></td>
+  <% end %>
 </tr>

@@ -18,13 +18,15 @@
       <table class="table table-hover">
         <thead>
           <tr>
-            <th></th>
+            <th>ID</th>
             <th>First Name</th>
             <th>Last Name</th>
             <th>Email</th>
             <th></th>
-            <th></th>
-            <th></th>
+            <% if user_signed_in? && current_user.userable_type == "Admin" %>
+              <th></th>
+              <th></th>
+            <% end %>
           </tr>
         </thead>
         <tbody id="all_admins">

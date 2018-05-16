@@ -23,8 +23,10 @@
             <th>Age</th>
             <th>Degree</th>
             <th></th>
+          <% if user_signed_in? && current_user.userable_type == "Admin" %>
             <th></th>
             <th></th>
+          <% end %>
           </tr>
         </thead>
         <tbody id="all_students">

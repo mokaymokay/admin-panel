@@ -37,21 +37,28 @@
           </a>
           <ul class="sidenav-second-level collapse" id="Courses">
             <% @courses.each do |course| %>
-            <li>
-            <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#course<%= course.id %>"><%= course.name %></a>
-            <ul class="sidenav-third-level collapse" id="course<%= course.id %>">
-              <% if !course.cohorts.empty? %>
-                <% course.cohorts.each do |cohort| %>
-                <li>
-                  <a href="<%= course_cohort_path(cohort.course, cohort) %>"><%= cohort.name %></a>
-                </li>
-                <% end %>
+              <li>
+                <%- # Display without toggler icon if course doesn't have any cohorts -%>
+              <% if course.cohorts.empty? %>
+                <a class="nav-link"><%= course.name %></a>
+              <% else %>
+                <%- # Display cohorts associated with each course -%>
+                <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#course<%= course.id %>"><%= course.name %></a>
+                <ul class="sidenav-third-level collapse" id="course<%= course.id %>">
+                  <% course.cohorts.each do |cohort| %>
+                    <li>
+                      <a href="<%= course_cohort_path(cohort.course, cohort) %>"><%= cohort.name %></a>
+                    </li>
+                  <% end %>
+                  <%- # Show link to add cohort only if user is admin -%>
+                  <% if user_signed_in? && current_user.userable_type == "Admin" %>
+                    <li>
+                      <a href="<%= new_course_cohort_path(course) %>">Add Cohort</a>
+                    </li>
+                  <% end %>
+                </ul>
+              </li>
               <% end %>
-                <li>
-                  <a href="<%= new_course_cohort_path(course) %>">Add Cohort</a>
-                </li>
-            </ul>
-          </li>
             <% end %>
           </ul>
         </li>
