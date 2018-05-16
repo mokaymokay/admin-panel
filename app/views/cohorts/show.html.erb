@@ -15,13 +15,13 @@
         <%= render "shared/flash" %>
       </div>
 
-      <div id="new_grade_container">
-        <%= bootstrap_form_for @grade, remote: true, authenticity_token: true, data: { type: :script } do |f| %>
-            <%= f.collection_select(:student_id, @students_not_in_cohort, :id, :full_name, prompt: true) %>
-            <%= f.hidden_field :cohort_id, value: params[:id] %>
-            <%= f.submit "Add to Cohort", class: "btn btn-outline-success" %>
-        <% end %>
-      </div>
+        <div id="new_grade_container">
+          <%= bootstrap_form_for @grade, remote: true, authenticity_token: true, data: { type: :script }, layout: :inline do |f| %>
+              <%= f.collection_select(:student_id, @students_not_in_cohort, :id, :full_name, prompt: true) %>
+              <%= f.hidden_field :cohort_id, value: params[:id] %>
+              <%= f.submit "Add to Cohort", class: "btn btn-outline-success mx-2" %>
+          <% end %>
+        </div>
 
       <table class="table table-hover">
         <thead>

@@ -23,8 +23,6 @@ class InstructorsController < ApplicationController
         format.html { redirect_to instructors_path }
         format.js
       }
-    # else
-      # flash[:error] = @instructor.errors.full_messages.first
     end
   end
 

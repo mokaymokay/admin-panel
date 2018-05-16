@@ -164,7 +164,7 @@
             <div class="input-group">
               <input class="form-control" type="text" placeholder="Search for...">
               <span class="input-group-append">
-                <button class="btn btn-primary" type="button">
+                <button class="btn btn-light" type="button">
                   <i class="fa fa-search"></i>
                 </button>
               </span>
@@ -207,7 +207,7 @@
     </a>
     <!-- Logout Modal-->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
+      <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
@@ -217,8 +217,8 @@
           </div>
           <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
           <div class="modal-footer">
-            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "btn btn-primary") %>
+            <button class="btn btn-outline-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "btn btn-outline-danger") %>
           </div>
         </div>
       </div>
