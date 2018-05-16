@@ -8,50 +8,58 @@
   </ol>
   <div class="row">
     <div class="col-12">
-      <h4>Cohort Roster</h4>
+      <h4 class="mb-4"><%= @page_title %></h4>
 
       <!-- form flash messages -->
       <div id="flash_messages">
         <%= render "shared/flash" %>
       </div>
 
-      <% if user_signed_in? && current_user.userable_type == "Admin" || @cohort.instructor.id == current_user.userable_id %>
-        <div id="new_grade_container">
-          <%= bootstrap_form_for @grade, remote: true, authenticity_token: true, data: { type: :script }, layout: :inline do |f| %>
-              <%= f.collection_select(:student_id, @students_not_in_cohort, :id, :full_name, prompt: true) %>
-              <%= f.hidden_field :cohort_id, value: params[:id] %>
-              <%= f.submit "Add to Cohort", class: "btn btn-outline-success mx-2" %>
+      <div class="row">
+        <div class="col-sm">
+          <p>
+            <strong>Instructor: </strong><%= link_to("#{@instructor.full_name}", instructor_path(@instructor)) %><br>
+            <strong>Start: </strong><%= @cohort.start_date.strftime("%b %d, %Y") %><br>
+            <strong>End: </strong><%= @cohort.end_date.strftime("%b %d, %Y") %>
+          </p>
+        </div>
+        <div class="col-sm offset-lg-3">
+          <% if user_signed_in? && current_user.userable_type == "Admin" || @cohort.instructor.id == current_user.userable_id %>
+            <div id="new_grade_container">
+              <%= bootstrap_form_for @grade, remote: true, authenticity_token: true, data: { type: :script }, layout: :inline do |f| %>
+                  <%= f.collection_select(:student_id, @students_not_in_cohort, :id, :full_name, prompt: true) %>
+                  <%= f.hidden_field :cohort_id, value: params[:id] %>
+                  <%= f.submit "Add to Cohort", class: "btn btn-outline-success ml-2 add_to_cohort_button" %>
+              <% end %>
+            </div>
           <% end %>
         </div>
-      <% end %>
+      </div>
 
-      <table class="table table-hover mt-3">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Age</th>
-            <th>Degree</th>
-            <th>Grade</th>
-            <% if user_signed_in? && current_user.userable_type == "Admin" || @cohort.instructor.id == current_user.userable_id %>
-              <th></th>
-              <th></th>
+      <div class="my-4">
+        <h5><strong>Cohort Roster</strong></h5>
+        <table class="table table-hover mt-3">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Age</th>
+              <th>Degree</th>
+              <th>Grade</th>
+              <% if user_signed_in? && current_user.userable_type == "Admin" || @cohort.instructor.id == current_user.userable_id %>
+                <th></th>
+                <th></th>
+              <% end %>
+            </tr>
+          </thead>
+          <tbody id="all_students">
+            <% @students.each do |student| %>
+              <%= render partial: 'cohort_student', locals: { student: student, cohort: @cohort } %>
             <% end %>
-          </tr>
-        </thead>
-        <tbody id="all_students">
-          <% @students.each do |student| %>
-            <%= render partial: 'cohort_student', locals: { student: student, cohort: @cohort } %>
-          <% end %>
-        </tbody>
-      </table>
-
-      <p>
-        <strong>Instructor: </strong><%= link_to("#{@instructor.full_name}", instructor_path(@instructor)) %><br>
-        <strong>Start: </strong><%= @cohort.start_date.strftime("%b %d, %Y") %><br>
-        <strong>End: </strong><%= @cohort.end_date.strftime("%b %d, %Y") %>
-      </p>
+          </tbody>
+        </table>
+      </div>
 
       <div class="modal fade" id="editGradeModal" tabindex="-1" role="dialog" aria-labelledby="editGradeModal" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">

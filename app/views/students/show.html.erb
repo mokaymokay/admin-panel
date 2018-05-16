@@ -9,11 +9,36 @@
   <div class="row">
     <div class="col-12">
       <br>
-      <h5>Cohorts</h5>
+      <h5>Report Card</h5>
       <% if @student.cohorts.any? %>
-        <% @student.cohorts.each do |cohort| %>
-          <li><%= link_to("#{cohort.name}", course_cohort_path(cohort.course, cohort)) %> (<%= cohort.start_date.strftime("%b %d, %Y") %> - <%= cohort.end_date.strftime("%b %d, %Y") %>) </li>
-        <% end %>
+        <table class="table table-hover mt-3">
+          <thead>
+            <tr>
+              <th>Cohort</th>
+              <th>Instructor</th>
+              <th>Duration</th>
+              <th>Grade</th>
+            </tr>
+          </thead>
+          <tbody id="all_students">
+            <% @student.cohorts.each do |cohort| %>
+            <tr>
+              <td><%= link_to("#{cohort.name}", course_cohort_path(cohort.course, cohort)) %></td>
+              <td><%= link_to("#{cohort.instructor.full_name}", instructor_path(cohort.instructor)) %></td>
+              <td><%= cohort.start_date.strftime("%b %d, %Y") %> - <%= cohort.end_date.strftime("%b %d, %Y") %></td>
+              <td>
+                <% if cohort.grades.find_by(student_id: @student.id).pass == true %>
+                  Pass
+                <% elsif cohort.grades.find_by(student_id: @student.id).pass == false %>
+                  Fail
+                <% else %>
+                  N/A
+                <% end %>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
       <% else %>
         <li>Not currently enrolled in any cohorts</li>
       <% end %>

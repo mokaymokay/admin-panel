@@ -2,3 +2,9 @@
   margin-top: 3vh;
   margin-bottom: 3vh;
 }
+
+@media (max-width: 576px) {
+  .add_to_cohort_button {
+    margin-top: 2vh;
+  }
+}
