@@ -143,6 +143,10 @@
 }
 
 #identifyCurrentUser{
-  color: $gray-600;
-  margin-left: -15px;
+  @media all and (min-width: 992px) {
+    margin-left: -15px;
+    color: $gray-600;
+    display: block;
+  }
+  display: none;
 }
