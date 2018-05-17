@@ -38,8 +38,8 @@
           <ul class="sidenav-second-level collapse" id="Courses">
             <% @courses.each do |course| %>
               <li>
-                <%- # Display without toggler icon if course doesn't have any cohorts -%>
-              <% if course.cohorts.empty? %>
+                <%- # Display without toggler icon if course hsa no cohorts and current user isn't admin -%>
+              <% if course.cohorts.empty? && user_signed_in? && current_user.userable_type != "Admin" %>
                 <a class="nav-link"><%= course.name %></a>
               <% else %>
                 <%- # Display cohorts associated with each course -%>
