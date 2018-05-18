@@ -1,24 +1,25 @@
-# README
+# Magic Admin Panel
+## User-friendly admin panel built for a magical bootcamp
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Built with:
+* Ruby on Rails
+* PostgreSQL
 
-Things you may want to cover:
+## Basic Functions:
+* Authentication with Devise - two types of users: Admins (full privileges) and Instructors (limited privileges)
+* Admins can CRUD students, instructors, admins, courses, and cohorts
+* Instructors can only view above resources (except for salary and age data), assign/remove students to/from their own cohorts, and edit grades
 
-* Ruby version
+## User-friendly Features:
+* AJAX calls for all CRUD actions resulting in limited redirects/reloads and improved site performance
+* Modal forms for all AJAX CRUD actions
+* Quick links on dashboard for Admins to add resources
+* Color-coordinated buttons and flash messages based on resource type and CRUD action
+* Dynamically created sidenav buttons for each course and their cohorts
+* Ability to add cohorts directly from sidenav for specific course
+* Breadcrumbs and links throughout site to provide smooth navigation
+* Meaningful icons, favicon, and signed in user identification
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Acknowledgements
+* Credits: [Start Bootstrap](https://github.com/BlackrockDigital/startbootstrap-sb-admin), [Hogwarts Logo](http://arilitv.com/harry-potter-coloring-page/harry-potter-coloring-page-hogwarts-crest-pages-cute/)
+* Inspiration: Harry Potter
