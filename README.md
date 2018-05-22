@@ -5,6 +5,16 @@
 * Ruby on Rails
 * PostgreSQL
 
+## Demo Login:
+* Username: adumbledore@hogwarts.com
+* Password: muggles
+
+User Dashboard:
+![dashboard](github/dashboard.png)
+
+Example CRUD page:
+![assign-students-to-cohort](github/assign-students-to-cohort.png)
+
 ## Basic Functions:
 * Authentication with Devise - two types of users: Admins (full privileges) and Instructors (limited privileges)
 * Admins can CRUD students, instructors, admins, courses, and cohorts
